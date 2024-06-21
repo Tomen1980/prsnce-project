@@ -15,10 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->enum('role', ['4dm1n', 'intern'])->default('intern');
+            $table->string('NoTelp', 13)->unique();
+            $table->string(('instansi'))->nullable();
+            $table->string('image')->default('default.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreignId('id_intern')->nullable()->references('id')->on('internType')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_unit')->nullable()->references('id')->on('unitType')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
