@@ -14,7 +14,7 @@
                     <input type="text" class="w-full h-10 bg-input-primary rounded-lg placeholder:text-white placeholder:font-fredoka placeholder:font-semibold placeholder:pl-2 placeholder:text-sm lg:h-14 md:placeholder:text-lg" placeholder="Password">
 
                     <button type="submit" class="w-[25%] mx-auto block">
-                        <img src="img/btn-login.png" alt="" class="w-full">
+                        <img src="img/btn-login.jpg" alt="" class="w-full">
                     </button>
                 </form>
             </div>
