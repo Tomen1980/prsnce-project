@@ -4,13 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 Route::get('/', [AuthController::class, 'loginForm'])->name('login');
+Route::post('/loginAction', [AuthController::class, 'loginAuth']);
 
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('index');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [AuthController::class, 'dashboard']);
 });
-Route::get('/register', function () {
-    return view('register');
-});
-=======
->>>>>>> baed320d0758f315858516a22a5dd0f0f3a46427
