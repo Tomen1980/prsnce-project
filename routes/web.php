@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::get('/', [AuthController::class, 'loginForm'])->name('login');
+
