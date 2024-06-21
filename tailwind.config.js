@@ -5,7 +5,15 @@ export default {
     "./resources/**/*.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'brand-primary': '#171717',
+        'input-primary' : '#5C5C5C'
+      },
+     fontFamily: {
+        'fredoka':'Fredoka'
+      },
+    },
   },
   plugins: [],
 }
