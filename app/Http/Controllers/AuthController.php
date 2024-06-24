@@ -34,6 +34,16 @@ class AuthController extends Controller
         return redirect('/')->with('error', 'email or password incorrect');
     }
 
+
+    public function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/');
+    }
+
+
     public function dashboard()
     {
         return view('dashboard');
