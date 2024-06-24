@@ -8,7 +8,8 @@ export default {
     extend: {
       colors: {
         'brand-primary': '#171717',
-        'input-primary' : '#5C5C5C'
+        'input-primary' : '#5C5C5C',
+        'input-placeholder' : "#999999"
       },
      fontFamily: {
         'fredoka':'Fredoka'
