@@ -12,10 +12,11 @@ class AuthController extends Controller
         return view('login');
     }
 
-<<<<<<< HEAD
-    public function registerForm(){
+    public function registerForm()
+    {
         return view('register');
-=======
+    }
+
     public function loginAuth(Request $request)
     {
         // return dd($request->all());
@@ -26,7 +27,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            
+
             return redirect('/dashboard')->with('success', 'Login Success');
         }
 
@@ -36,8 +37,5 @@ class AuthController extends Controller
     public function dashboard()
     {
         return view('dashboard');
->>>>>>> origin/staging
     }
 }
-
-
