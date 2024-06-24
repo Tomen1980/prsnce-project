@@ -13,6 +13,9 @@ export default {
      fontFamily: {
         'fredoka':'Fredoka'
       },
+      backgroundImage: {
+        'bg-login': 'url(/img/bg-login.png)',
+      },
     },
   },
   plugins: [],
