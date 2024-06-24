@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
     <title>Document</title>
     @vite('resources/css/app.css')
+    {{-- <link rel="stylesheet" href="build.css"> --}}
     <style>
         /* Animation */
         .animate-slide-down {

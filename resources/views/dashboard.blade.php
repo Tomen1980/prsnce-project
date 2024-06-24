@@ -64,7 +64,7 @@
                     <div class="w-full relative md:w-1/2">
                         <div class="absolute inset-0 bg-black opacity-50"></div>
                         <div class="absolute inset-0 p-5">
-                            <div class="flex items-center justify-center">
+                            <div class="flex items-center justify-center ">
                                 <img src="img/logo-dashboard.png" alt="Logo Dashboard"
                                     class="w-[85%] md:w-[60%] lg:w-1/2 xl:w-[40%]">
                             </div>
