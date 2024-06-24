@@ -3,10 +3,10 @@
 @section('content')
 
 <section>
-    <div class="w-full h-[100vh] border-2 bg-white relative">
+    <div class="w-full h-[100vh] bg-white relative">
         <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
         <div class="absolute inset-0 bg-black opacity-50 lg:bg-black-900"></div>
-        <div class="absolute w-full top-0 border-2  border-red-600 flex  justify-between">
+        <div class="absolute w-full top-0 flex  justify-between">
             <img src="img/mini-logo.png" alt="" class="w-1/2 lg:w-1/4 lg:block lg:h-[155px] ml-6 mt-5 md:w-2/6 md:h-2/4">
             <img src="img/profile.png" alt="" class="w-[15%] lg:w-[8%] mr-5 md:w-[9%] md:h-[9%]">
             {{-- <form action="/absenpulangAction" method="POST"> --}}

@@ -13,5 +13,5 @@ Route::post('/loginAction', [AuthController::class, 'loginAuth']);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
 });
-Route::get('/absenpulang', [AuthController::class, 'absenpulang']);
-Route::post('/absenpulangAction', [absenController::class, 'absenpulang']);
+Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+
