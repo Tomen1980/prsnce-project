@@ -37,7 +37,6 @@ class AuthController extends Controller
         return redirect('/')->with('error', 'email or password incorrect');
     }
 
-<<<<<<< HEAD
     public function register(Request $request)
     {
         // return dd($request->all());
@@ -72,8 +71,7 @@ class AuthController extends Controller
             return redirect('/register')->with('error', 'Register Failed');
         }
 
-        
-=======
+    }
 
     public function logout()
     {
@@ -81,7 +79,6 @@ class AuthController extends Controller
         request()->session()->invalidate();
         request()->session()->regenerateToken();
         return redirect('/');
->>>>>>> Agung-Branch
     }
 
 
