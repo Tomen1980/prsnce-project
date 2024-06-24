@@ -45,8 +45,8 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required',
             'password2' => 'required',
-            'noTelp'=>'required',
-            
+            'noTelp'=>'required|min:10|max:13',
+    
         ]);
 
         if ($credentials['password'] != $credentials['password2']) {
@@ -80,5 +80,7 @@ class AuthController extends Controller
         return view('dashboard');
 
     }
+
+    
 
 }
