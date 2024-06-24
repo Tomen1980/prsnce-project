@@ -40,7 +40,7 @@
 
 
 
-    <section class="bg-white mb-5">
+    <section class="bg-white">
 
         <section>
 
