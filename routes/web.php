@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\absenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -12,3 +13,5 @@ Route::post('/loginAction', [AuthController::class, 'loginAuth']);
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
 });
+Route::get('/absenpulang', [AuthController::class, 'absenpulang']);
+Route::post('/absenpulangAction', [absenController::class, 'absenpulang']);

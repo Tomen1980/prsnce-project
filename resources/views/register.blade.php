@@ -6,7 +6,7 @@
         <div class="mt-10 pt-10 px-10 h-[60%] relative z-10">
             <img src="img/logo.png" alt="" class="mb-2 lg:mt-10 mx-auto">
             <p class="text-[#8B8B8B] text-md font-semibold font-fredoka mb-2 lg:text-xl">Register User</p>
-            <form action="/registerAction" method="POST" class="space-y-5 md:space-y-10">
+            <form action="/registerAction" method="POST" class="space-y-3 md:space-y-6">
                 @csrf
                 @method('POST')
               
