@@ -15,9 +15,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
 });
 
-Route::get("/formPeserta", function () {
+Route::get('/formPeserta', function () {
     return view('formPeserta');
 });
 
 Route::get('/absenpulang', [absenController::class, 'absenpulang']);
 Route::get('/listunit', [unitController::class, 'unit']);
+
+Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+
+Route::get('/listPeserta', function () {
+    return view('listPeserta');
+});

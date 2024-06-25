@@ -34,7 +34,7 @@
       <div id="modalBackdrop" class="fixed inset-0 bg-black opacity-50"></div>
   </div>
 
-   <div class="w-full relative h-[110vh]">
+   <div class="w-full relative h-[120vh] lg:h-[110vh] ">
         <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
         <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -80,8 +80,8 @@
             </div>
             <button class="w-[40%] mx-auto block bg-black h-12 text-white font-fredoka font-semibold mt-5 rounded-xl shadow-lg">Simpan</button>
         </div>
-
-   </div>
+        <a href="/dashboard" class="absolute bottom-5 left-5  py-1 px-5 md:py-2 md:px-10 rounded-lg text-white font-semibold font-fredoka bg-[#990D26] "> Kembali </a>
+    </div>
 </section>
 
 @include('Layouts.footer')
