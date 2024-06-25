@@ -14,3 +14,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get("/formPeserta", function () {
     return view('formPeserta');
 });
+
+Route::get("/listPeserta", function () {
+    return view('listPeserta');
+});
