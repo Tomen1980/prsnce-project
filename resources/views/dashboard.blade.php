@@ -16,42 +16,14 @@
 
         <section>
 
-            <!-- Modal Section -->
-            <div id="profileModal" class="fixed inset-0 flex items-center justify-center z-20 hidden ">
-                <div class="bg-slate-700 p-5 rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down">
-                    <div class="text-center text-white space-y-3">
-                        <img src="img/profile.png" alt="Profile Image" class="w-[100px] h-[100px] rounded-full mx-auto mb-3">
-                        <h2 class="text-lg font-bold">John Doe</h2>
-                        <div class="flex w-[40%] mx-auto">
-                            <div class="w-[40%] h-10 ">
-                                <label for="" class="text-white">Tipe</label>
-                                <p class="w-full bg-[#712727] rounded-l-lg">Intern</p>
-                            </div>
-                            <div class="w-[60%] h-10 ">
-                                <label for="" class="text-white">Unit</label>
-                                <p class="w-full bg-input-primary rounded-r-lg">Marketing</p>
-                            </div>
-                        </div>
-                        <div class="w-[40%] mx-auto ">
-                            <label for="" class="text-white">Instansi</label>
-                            <p class="w-full bg-input-primary rounded-r-lg">ABC Corporation</p>
-                        </div>
-                        <div class="w-[40%] mx-auto ">
-                            <label for="" class="text-white">Mentor</label>
-                            <p class="w-full bg-input-primary rounded-r-lg">Jane Smith</p>
-                        </div>
-                        <button id="closeModal" class="mt-5 bg-red-500 text-white px-4 py-2 rounded">Exit</button>
-                    </div>
-                </div>
-                <div id="modalBackdrop" class="fixed inset-0 bg-black opacity-50"></div>
-            </div>
+          @include('components.boxModelProfile')
 
             <div class="w-full h-[350px] lg:h-[400px] xl:h-[500px]  relative">
                 <!-- Gambar Latar Belakang -->
                 <img src="img/bg-login.png" alt="Background Image" class="object-cover w-full h-full ">
                 {{-- Pop up Profile --}}
 
-                <div class=" w-[15%] lg:w-[10%] xl:w-[6%] bg-slate-700 h-[150px] sm:h-[200px] md:h-[250px] lg:h-[200px] rounded-b-full fixed top-0 right-5 z-10"
+                <div class=" w-[15%] lg:w-[10%] xl:w-[6%] bg-slate-700 h-[150px] sm:h-[200px] md:h-[250px] lg:h-[200px] rounded-b-[30px] fixed top-0 right-5 z-10"
                     id="profile">
                     <div>
                         <img src="img/profile.png" alt="Profile Image"
@@ -64,20 +36,20 @@
                     <div class="w-full relative md:w-1/2">
                         <div class="absolute inset-0 bg-black opacity-50"></div>
                         <div class="absolute inset-0 p-5">
-                            <div class="flex items-center justify-center ">
+                            <div class="flex items-center justify-start ">
                                 <img src="img/logo-dashboard.png" alt="Logo Dashboard"
                                     class="w-[85%] md:w-[60%] lg:w-1/2 xl:w-[40%]">
                             </div>
                             <p
-                                class="text-white font-fredoka font-semibold text-sm text-center md:text-lg lg:text-xl xl:text-2xl">
+                                class="text-white font-fredoka font-medium text-sm text-center md:text-lg lg:text-xl xl:text-2xl text-justify">
                                 Dirancang untuk memenuhi kebutuhan karyawan dan peserta magang di berbagai organisasi.
                                 Dengan fitur yang user-friendly dan efisien, Prsnce memungkinkan pencatatan kehadiran yang
                                 akurat serta pembuatan laporan kerja terperinci untuk peserta magang.
                             </p>
                         </div>
                     </div>
-                    <div class="hidden md:block md:w-1/2">
-                        <img src="img/hero3.png" alt="" class="object-cover w-full ">
+                    <div class="hidden md:block md:relative md:w-1/2">
+                        <img src="img/hero3.png" alt="" class="object-cover w-full absolute bottom-0 ">
                     </div>
                 </div>
 
@@ -93,7 +65,7 @@
                 </div>
                 <div class="w-1/2 p-10">
                     <h1 class="text-white font-fredoka font-semibold lg:text-6xl xl:text-7xl mb-5">Hadir? Hadir.</h1>
-                    <p class="text-white font-fredoka font-semibold lg:text-xl xl:text-2xl">Menghadirkan solusi terdepan
+                    <p class="text-white font-fredoka font-medium lg:text-xl xl:text-2xl text-justify">Menghadirkan solusi terdepan
                         untuk pengelolaan data absensi yang dirancang khusus untuk karyawan dan peserta magang di Witel
                         Lembong. Prsnce mempermudah pencatatan kehadiran dengan sistem yang efisien dan user-friendly,
                         memastikan setiap jam kerja tercatat dengan akurat. Selain itu, Prsnce juga menawarkan fitur
@@ -105,43 +77,43 @@
         </section>
 
         @if (Auth::user()->role == 'intern')
-            <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10">
+            <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10 md:w-[90%] lg:w-[75%] mx-auto">
                 <a href="" class="w-full flex justify-center  md:col-span-4">
-                    <img src="img/absenMasuk.png" alt="" class="object-cover w-[75%] rounded-lg">
+                    <img src="img/absenMasuk.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
                 </a>
                 <a href="" class="w-full flex justify-center  md:col-span-4">
-                    <img src="img/absenPulang.png" alt="" class="object-cover w-[75%] rounded-lg">
+                    <img src="img/absenPulang.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
                 </a>
                 <a href="" class="w-full flex justify-center  md:col-span-3">
-                    <img src="img/riwayatAbsensi.png" alt="" class="object-cover w-[75%] rounded-lg md:w-[90%]">
+                    <img src="img/riwayatAbsensi.png" alt="" class="object-fill w-[75%] md:w-full rounded-lg">
                 </a>
 
                 <a href="" class="w-full flex justify-center  md:col-span-3">
-                    <img src="img/rules.png" alt="" class="object-cover w-[75%] rounded-lg">
+                    <img src="img/rules.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
                 </a>
 
                 <a href="" class="w-full flex justify-center  md:col-span-2">
-                    <img src="img/statistik.png" alt="" class="object-cover w-[75%] rounded-lg">
+                    <img src="img/statistik.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
                 </a>
             </section>
         @elseif (Auth::user()->role == '4dm1n')
-            <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10">
-                <a href="" class="w-full flex justify-center  md:col-span-4">
-                    <img src="img/listUnit.png" alt="" class="object-cover w-[75%] rounded-lg">
+            <section class="grid grid-cols-1 gap-5  md:grid-cols-8 bg-white my-10  md:w-[90%] lg:w-[75%] mx-auto">
+                <a href="" class="w-full flex justify-center  md:col-span-4 ">
+                    <img src="img/listUnit.png" alt="" class="object-cover w-[75%] md:w-full rounded-lg">
                 </a>
-                <a href="" class="w-full flex justify-center  md:col-span-4">
-                    <img src="img/listIntern.png" alt="" class="object-cover w-[75%] rounded-lg">
+                <a href="/listPeserta" class="w-full flex justify-center  md:col-span-4 ">
+                    <img src="img/listIntern.png" alt="" class="object-cover w-[75%] md:w-full rounded-lg">
                 </a>
-                <a href="" class="w-full flex justify-center  md:col-span-3">
-                    <img src="img/riwayatAbsensi.png" alt="" class="object-cover w-[75%] rounded-lg md:w-[90%]">
-                </a>
-
-                <a href="" class="w-full flex justify-center  md:col-span-3">
-                    <img src="img/rules.png" alt="" class="object-cover w-[75%] rounded-lg">
+                <a href="" class="w-full flex justify-center  md:col-span-3 ">
+                    <img src="img/addUnit.png" alt="" class="object-fill w-[75%] md:w-full rounded-lg">
                 </a>
 
-                <a href="" class="w-full flex justify-center  md:col-span-2">
-                    <img src="img/addPeserta.png" alt="" class="object-cover w-[75%] rounded-lg">
+                <a href="" class="w-full flex justify-center  md:col-span-3 ">
+                    <img src="img/rules.png" alt="" class="object-cover w-[75%] md:w-full rounded-lg">
+                </a>
+
+                <a href="/formPeserta" class="w-full flex justify-center  md:col-span-2 ">
+                    <img src="img/addPeserta.png" alt="" class="object-cover w-[75%] md:w-full rounded-lg">
                 </a>
             </section>
         @endif
