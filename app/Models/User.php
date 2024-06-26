@@ -20,6 +20,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'nip',
+        'noTelp',
+        'instansi',
+        'tipePeserta',
+        'tipeUnit',
+        'role',
+        'image',
+        'id_intern',
+        'id_unit',
+        'mentor'
     ];
 
     /**

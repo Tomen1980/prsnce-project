@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->enum('role', ['4dm1n', 'intern'])->default('intern');
-            $table->string('NoTelp', 13)->unique();
+            $table->string('NoTelp',13);
             $table->string(('instansi'))->nullable();
             $table->string('image')->default('default.png');
             $table->timestamp('email_verified_at')->nullable();
