@@ -25,4 +25,8 @@ class absenController extends Controller
         $absen->save();
         return redirect('/dashboard');
     }
+
+    public function absenpulang(){
+        return view('absenpulang');
+    }
 }
