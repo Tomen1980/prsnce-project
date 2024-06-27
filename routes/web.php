@@ -16,19 +16,6 @@ Route::post('/loginAction', [AuthController::class, 'loginAuth']);
 
 Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard']);
-});
-
-Route::get('/formPeserta', function () {
-    return view('formPeserta');
-});
-
-Route::get('/absenpulang', [absenController::class, 'absenpulang']);
-Route::get('/listunit', [unitController::class, 'unit']);
-
-Route::get('/absenpulang', [absenController::class, 'absenpulang']);
-
-Route::get('/listPeserta', function () {
-    return view('listPeserta');
     Route::delete('/logout', [AuthController::class, 'logout']);
     Route::get('/formPeserta', [UserController::class, 'create'])->middleware('RoleAuthenticated');
     Route::get('/searchPeserta', [UserController::class, 'searchPeserta'])
@@ -49,4 +36,17 @@ Route::get('/listPeserta', function () {
     Route::put('/updatePeserta/{id}', [UserController::class, 'update'])
         ->name('updatePeserta')
         ->middleware('RoleAuthenticated');
+    Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+    Route::get('/listunit', [unitController::class, 'unit']);
+});
+// Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+
+
+// Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+// Route::get('/listunit', [unitController::class, 'unit']);
+
+
+Route::get('/listPeserta', function () {
+    return view('listPeserta');
+    
 });

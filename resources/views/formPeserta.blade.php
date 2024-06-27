@@ -23,8 +23,8 @@
                 <div class="w-full relative h-[140vh] md:h-[120vh]">
         @endif
 
-        <img src="/img/bg-login.png" alt="" class="object-cover w-full h-full">
-        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <img src="/img/bg-login.png" alt="" class="object-cover w-full h-full l">
+        <div class="absolute inset-0 bg-black opacity-50 l"></div>
 
         <div class="absolute top-0  w-full flex">
             <div class="w-1/2">
@@ -171,7 +171,7 @@
                 </div>
             </div>
             <button
-                class="w-[40%] mx-auto block bg-black h-12 text-white font-fredoka font-semibold mt-5 rounded-xl shadow-lg">Simpan</button>
+                class="w-[40%] mx-auto block bg-black h-12 text-white font-fredoka font-semibold mt-5 rounded-xl shadow-lg">Unggah</button>
             </form>
         </div>
         <a href="/dashboard"
