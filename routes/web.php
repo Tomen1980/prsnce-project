@@ -32,7 +32,10 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
     Route::get('/detailPeserta/{id}', [UserController::class, 'show'])
         ->name('detailPeserta')
         ->middleware('RoleAuthenticated');
+
     Route::put('/updatePeserta/{id}', [UserController::class, 'update'])
         ->name('updatePeserta')
         ->middleware('RoleAuthenticated');
-});
+
+    Route::get('/formProfile/{id}', [AuthController::class, 'formProfile']);
+    });

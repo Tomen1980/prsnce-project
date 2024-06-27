@@ -50,7 +50,10 @@
             const profileElement = document.getElementById('profile');
             const profileModal = document.getElementById('profileModal');
             const closeModalButton = document.getElementById('closeModal');
-            const modalBackdrop = document.getElementById('modalBackdrop');
+            const editProfileButton = document.getElementById('editProfileButton');
+            const profileContent = document.getElementById('profileContent');
+            const formContent = document.getElementById('formContent');
+            const backButton = document.getElementById('backButton');
 
             // Function to open modal
             const openModal = () => {
@@ -62,12 +65,39 @@
                 profileModal.classList.remove('active');
             };
 
+            // Function to show form and hide profile
+            const showFormContent = () => {
+                profileContent.classList.add('hidden');
+                formContent.classList.remove('hidden');
+            };
+
+            // Function to show profile and hide form
+            const showProfileContent = () => {
+                profileContent.classList.remove('hidden');
+                formContent.classList.add('hidden');
+            };
+
             // Add click event to open modal
             profileElement.addEventListener('click', openModal);
 
             // Add click event to close modal
             closeModalButton.addEventListener('click', closeModal);
-            modalBackdrop.addEventListener('click', closeModal);
+
+            // Add click event to toggle form content
+            editProfileButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showFormContent();
+            });
+
+            // Close modal and show profile content when modal is closed
+            closeModalButton.addEventListener('click', function() {
+                closeModal();
+                showProfileContent();
+            });
+
+            backButton.addEventListener('click', function() {
+                showProfileContent();
+            })
         });
     </script>
 
