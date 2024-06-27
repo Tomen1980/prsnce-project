@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image')->default('default.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('mentor');
             $table->rememberToken();
             $table->timestamps();
             $table->foreignId('id_intern')->nullable()->references('id')->on('internType')->onDelete('cascade')->onUpdate('cascade');

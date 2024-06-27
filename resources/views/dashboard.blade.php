@@ -6,6 +6,11 @@
             {{ session()->get('success') }}
         </div>
     @endif
+    @if (session()->has('error'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+            {{ session()->get('error') }}
+        </div>
+    @endif
 
 
   
@@ -17,6 +22,7 @@
         <section>
 
           @include('components.boxModelProfile')
+          @include('components.boxModelAbsen')
 
             <div class="w-full h-[350px] lg:h-[400px] xl:h-[500px]  relative">
                 <!-- Gambar Latar Belakang -->
@@ -26,7 +32,7 @@
                 <div class=" w-[15%] lg:w-[10%] xl:w-[6%] bg-slate-700 h-[150px] sm:h-[200px] md:h-[250px] lg:h-[200px] rounded-b-[30px] fixed top-0 right-5 z-10"
                     id="profile">
                     <div>
-                        <img src="img/profile.png" alt="Profile Image"
+                        <img src="{{ Storage::url('users/' . Auth::user()->image) }}" alt="Profile Image"
                             class="object-cover w-[70%] mx-auto mt-5 h-full rounded-full">
                         <img src="img/hand.png" alt="Profile Image" class="object-cover w-[70%] mx-auto h-full">
                     </div>
@@ -77,12 +83,18 @@
         </section>
 
         @if (Auth::user()->role == 'intern')
-            <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10 md:w-[90%] lg:w-[75%] mx-auto">
-                <a href="" class="w-full flex justify-center  md:col-span-4">
+            <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10 md:w-[90%] lg:w-[75%] mx-auto ">
+                <a id="{{$absen ? "" : absenButton}}" href="{{$absen ? "" : "#"}}" class="w-full flex justify-center  md:col-span-4 relative ">
                     <img src="img/absenMasuk.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
+                    @if($absen)
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                    @endif
                 </a>
-                <a href="" class="w-full flex justify-center  md:col-span-4">
-                    <img src="img/absenPulang.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
+                <a href="" class="w-full flex justify-center  md:col-span-4 relative ">
+                    <img src="img/absenPulang.png" alt="" class="object-fill w-[75%] md:w-full  rounded-lg">
+                    @if($absen != true)
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                    @endif
                 </a>
                 <a href="" class="w-full flex justify-center  md:col-span-3">
                     <img src="img/riwayatAbsensi.png" alt="" class="object-fill w-[75%] md:w-full rounded-lg">
@@ -120,6 +132,28 @@
         @include('Layouts.footer')
     </section>
 
+@if (Auth::user()->role == 'intern')
+    <script>
+   
+   document.addEventListener('DOMContentLoaded', function() {
 
+       const absenModal = document.getElementById('absenModal');
+       const closeModalAbsen = document.getElementById('closeModalAbsen');
+        const absenButton = document.getElementById('absenButton');
+
+       const openModal = () => {
+           absenModal.classList.remove('hidden');
+       };
+       const closeModal = () => {
+           absenModal.classList.add('hidden');
+       };
+       closeModalAbsen.addEventListener('click', closeModal);
+       absenButton.addEventListener('click', openModal);
+
+
+   })
+
+</script>
+@endif
   
 @endsection

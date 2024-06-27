@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+use App\Models\absensiModel;
+use Carbon\Carbon;
+
 
 class AuthController extends Controller
 {
@@ -84,12 +87,63 @@ class AuthController extends Controller
     }
 
 
-    public function dashboard()
-    {
-        return view('dashboard');
-
-    }
-
    
 
+    public function updateProfile(Request $request)
+    {
+        $validation = $request->validate([
+        'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'oldPass' => 'required|min:8',
+            'password' => 'nullable|min:8',
+            'passwordVerify' => 'nullable|min:8'
+        ]);
+
+        $verifyData = User::find(Auth::user()->id);
+
+        if($request->oldPass == null){
+            return back()->with('error', 'Old Password must be filled');
+        }else{
+            if(!Hash::check($request->oldPass, $verifyData->password)){
+                return back()->with('error', 'Old Password not match');
+            }
+        }
+        if($request->password == null){
+            $password = $verifyData->password;
+        }else{
+            if($request->password != $request->passwordVerify){
+                return back()->with('error', 'password not match');
+            }else{
+                $password = Hash::make($request->password);
+            }
+        }
+
+       if ($request->hasFile('image') != null) {
+            $image = $request->file('image');
+            $hashImage = $image->hashName();
+            $image->storeAs('/public/users/', $hashImage);
+            if($verifyData->image != "default.png"){
+                Storage::disk('local')->delete('public/users/'.$verifyData->image);
+            }
+        }else{
+            $hashImage = $verifyData->image;
+        }
+
+        $user = User::find(Auth::user()->id)->update([
+            'image' => $hashImage,
+            'password' => $password,
+        ]);
+       
+
+        return redirect('/dashboard')->with('success', 'Update Success');
+    }
+   
+    public function dashboard()
+    {
+        $currentDate = Carbon::now()->format('Y-m-d');
+        $Absen = absensiModel::where('id_user',Auth::user()->id)->where('tanggal',$currentDate)->exists();
+        return view('dashboard',[
+            'absen' => $Absen
+        ]);
+
+    }
 }

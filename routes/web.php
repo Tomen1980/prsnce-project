@@ -37,5 +37,6 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
         ->name('updatePeserta')
         ->middleware('RoleAuthenticated');
 
-    Route::get('/formProfile/{id}', [AuthController::class, 'formProfile']);
-    });
+    Route::put('/updateProfile/{id}', [AuthController::class, 'updateProfile'])->name('updateProfile');
+    Route::post('/absen', [absenController::class, 'actionAbsenMasuk']);    
+});
