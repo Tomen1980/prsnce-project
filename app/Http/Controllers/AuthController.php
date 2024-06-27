@@ -68,8 +68,10 @@ class AuthController extends Controller
             'email' => $credentials['email'],
             'password' => Hash::make($credentials['password']),
             'noTelp'=>$credentials['noTelp'],
+            'role'=>'4dm1n'
         ]);
         if ($user) {
+            // return dd($user);
             return redirect('/')->with('success', 'Register Success');
         }
         else{

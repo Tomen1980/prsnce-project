@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\absenController;
+use App\Http\Controllers\unitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -39,4 +40,6 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
 
     Route::put('/updateProfile/{id}', [AuthController::class, 'updateProfile'])->name('updateProfile');
     Route::post('/absen', [absenController::class, 'actionAbsenMasuk']);    
+    Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+    Route::get('/listunit', [unitController::class, 'unit']);
 });

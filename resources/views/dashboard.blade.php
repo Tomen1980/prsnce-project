@@ -90,11 +90,8 @@
                     <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
                     @endif
                 </a>
-                <a href="" class="w-full flex justify-center  md:col-span-4 relative ">
-                    <img src="img/absenPulang.png" alt="" class="object-fill w-[75%] md:w-full  rounded-lg">
-                    @if($absen != true)
-                    <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
-                    @endif
+                <a href="/absenpulang" class="w-full flex justify-center  md:col-span-4">
+                    <img src="img/absenPulang.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
                 </a>
                 <a href="" class="w-full flex justify-center  md:col-span-3">
                     <img src="img/riwayatAbsensi.png" alt="" class="object-fill w-[75%] md:w-full rounded-lg">
@@ -110,13 +107,13 @@
             </section>
         @elseif (Auth::user()->role == '4dm1n')
             <section class="grid grid-cols-1 gap-5  md:grid-cols-8 bg-white my-10  md:w-[90%] lg:w-[75%] mx-auto">
-                <a href="" class="w-full flex justify-center  md:col-span-4 ">
+                <a href="/listunit" class="w-full flex justify-center  md:col-span-4 ">
                     <img src="img/listUnit.png" alt="" class="object-cover w-[75%] md:w-full rounded-lg">
                 </a>
                 <a href="/listPeserta" class="w-full flex justify-center  md:col-span-4 ">
                     <img src="img/listIntern.png" alt="" class="object-cover w-[75%] md:w-full rounded-lg">
                 </a>
-                <a href="" class="w-full flex justify-center  md:col-span-3 ">
+                <a href="/" class="w-full flex justify-center  md:col-span-3 ">
                     <img src="img/addUnit.png" alt="" class="object-fill w-[75%] md:w-full rounded-lg">
                 </a>
 
