@@ -3,7 +3,7 @@
 @section('content')
 
 <section>
-    <div class="w-full h-[100vh] bg-white relative">
+    <div class="w-full h-[110vh] bg-white relative">
         <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
         <div class="absolute inset-0 bg-black opacity-50 lg:bg-black-900"></div>
         <div class="absolute w-full top-0 flex  justify-between">
@@ -27,7 +27,10 @@
                 </div>
             </div>
         </form>
+        <a href="/dashboard"
+                class="absolute bottom-5 left-8  py-1 px-5 md:py-2 md:px-10 rounded-lg text-white font-semibold font-fredoka bg-[#990D26] ">
+                Kembali </a>
     </div>
 </section>
-{{-- @include('layout') --}}
+@include('layouts.footer')
 @endsection
