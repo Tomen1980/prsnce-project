@@ -39,13 +39,19 @@
             </div>
 
             <div class="border-2 bg-white absolute inset-6 mt-36 rounded-xl md:p-5 my-10">
-                <div class="flex flex-col flex-wrap lg:flex-row lg:w-full lg:justify-between">
+                <div class="flex flex-col flex-wrap items-center lg:flex-row lg:w-full lg:justify-between">
                     <h1 class="text-2xl mt-5 font-semibold text-center font-fredoka mb-5 md:text-4xl lg:text-4xl">List
                         Peserta Intern</h1>
-                    <div class="lg:w-1/2">
-                        <input type="text" placeholder="Search" id="search" name="search"
-                            value="{{ isset($search) ? $search : '' }}"
-                            class="w-[80%] h-10 bg-input-primary rounded-lg block mx-auto placeholder:text-white placeholder:font-fredoka placeholder:font-semibold placeholder:pl-2 placeholder:text-sm lg:h-14 md:placeholder:text-lg">
+                    <div class="w-[90%] lg:w-1/2">
+                        <div class="flex  bg-input-primary rounded-lg items-center">
+                            <input type="text" placeholder="Search" id="search" name="search"
+                                value="{{ isset($search) ? $search : '' }}"
+                                class=" w-[90%] h-10 outline-none bg-input-primary rounded-lg block mx-auto placeholder:text-white placeholder:font-fredoka placeholder:font-semibold placeholder:pl-2 placeholder:text-sm lg:h-14 md:placeholder:text-lg">
+                            <div class="w-[10%] flex justify-center">
+                                <img src="/img/loop.png" alt=""
+                                    class="object-cover w-[30px] md:w-[40px] lg:w-[40px]">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <p class="hidden lg:block font-fredoka text-input-primary text-justify lg:text-xl my-5">
