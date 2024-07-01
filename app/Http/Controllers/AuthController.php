@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LaporanModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -142,9 +143,17 @@ class AuthController extends Controller
     public function dashboard()
     {
         $currentDate = Carbon::now()->format('Y-m-d');
-        $Absen = absensiModel::where('id_user',Auth::user()->id)->where('tanggal',$currentDate)->exists();
+        $Absen = absensiModel::where('id_user',Auth::user()->id)->where('tanggal',$currentDate)->first();
+        if($Absen == null){
+            return view('dashboard',[
+                'absen' => $Absen,
+                'pulang' => null
+            ]);
+        }
+        $pulang = LaporanModel::where('id_absen',$Absen->id)->where('id_absen',$Absen->id)->first();
         return view('dashboard',[
-            'absen' => $Absen
+            'absen' => $Absen,
+            'pulang' => $pulang
         ]);
 
     }

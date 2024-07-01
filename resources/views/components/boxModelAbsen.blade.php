@@ -12,9 +12,14 @@
                         <h2 class="text-lg font-bold">Presensi</h2>
                     </button>
                 </form>
-                <div class="w-full h-[25vh] bg-yellow-300 rounded-lg flex justify-center items-center hover:bg-yellow-600">
-                    <h2 class="text-lg font-bold">Izin</h2>
-                </div>
+                <form action="/absen?status=izin" method="POST" class="w-full h-[25vh] bg-yellow-300 rounded-lg flex justify-center items-center hover:bg-yellow-600">
+                    @csrf
+                    @method('POST')
+                    <button type="submit">
+                        <h2 class="text-lg font-bold">Izin</h2>
+                    </button>
+                </form>
+               
             </div>
 
         </div>

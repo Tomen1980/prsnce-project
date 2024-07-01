@@ -3,8 +3,8 @@
 @section('content')
     <div class="flex">
         <div class="w-full h-screen  md:w-[45%]">
-            <div class=" pt-10 px-10  h-[60%] relative z-10">
-                <img src="img/new-logo.png" alt="" class="mb-2 lg:mt-10 mx-auto">
+            <div class=" pt-10 px-10  h-[60%] relative z-10 ">
+                <img src="/img/new-logo.png" alt="" class="mb-2 lg:mt-10 mx-auto">
                 <p for="" class="text-[#8B8B8B] text-md font-semibold font-fredoka lg:text-xl">Login User</p>
                 <form action="/loginAction" class="space-y-5 md:space-y-6" method="POST">
                     @csrf
@@ -46,7 +46,7 @@
 
         </div>
         <div class="full hidden md:w-[55%] md:block lg:h-[119vh] xl:h-[143vh] ">
-            <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
+            <img src="img/bg-login.png" alt="" class="object-cover w-full h-full ">
         </div>
     </div>
 @endsection

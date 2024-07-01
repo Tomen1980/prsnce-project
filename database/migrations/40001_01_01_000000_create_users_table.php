@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,12 +15,12 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->enum('role', ['4dm1n', 'intern'])->default('intern');
-            $table->string('NoTelp',13);
-            $table->string(('instansi'))->nullable();
+            $table->string('NoTelp', 13);
+            $table->string('instansi')->nullable();
             $table->string('image')->default('default.png');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('mentor');
+            $table->string('mentor')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->foreignId('id_intern')->nullable()->references('id')->on('internType')->onDelete('cascade')->onUpdate('cascade');
