@@ -84,14 +84,17 @@
 
         @if (Auth::user()->role == 'intern')
             <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10 md:w-[90%] lg:w-[75%] mx-auto ">
-                <a id="{{$absen ? "" : absenButton}}" href="{{$absen ? "" : "#"}}" class="w-full flex justify-center  md:col-span-4 relative ">
+                <a id="{{$absen ? "" : 'absenButton'}}" href="{{$absen ? "" : "#"}}" class="w-full flex justify-center  md:col-span-4 relative ">
                     <img src="img/absenMasuk.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
                     @if($absen)
                     <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
                     @endif
                 </a>
-                <a href="/absenpulang" class="w-full flex justify-center  md:col-span-4">
+                <a href="{{$absen ? "/absenpulang/$absen->id" :""}}" class="w-full flex justify-center  md:col-span-4">
                     <img src="img/absenPulang.png" alt="" class="object-cover w-[75%] md:w-full  rounded-lg">
+                    @if($absen)
+                    <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+                    @endif
                 </a>
                 <a href="" class="w-full flex justify-center  md:col-span-3">
                     <img src="img/riwayatAbsensi.png" alt="" class="object-fill w-[75%] md:w-full rounded-lg">

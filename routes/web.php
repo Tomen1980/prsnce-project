@@ -40,6 +40,8 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
 
     Route::put('/updateProfile/{id}', [AuthController::class, 'updateProfile'])->name('updateProfile');
     Route::post('/absen', [absenController::class, 'actionAbsenMasuk']);    
-    Route::get('/absenpulang', [absenController::class, 'absenpulang']);
+    Route::get('/absenpulang/{id}', [absenController::class, 'absenpulang']);
+    Route::post('/absenpulangAction', [absenController::class, 'absenpulangAction']);
     Route::get('/listunit', [unitController::class, 'unit']);
+    Route::get('/izin', [absenController::class, 'izinAction']);
 });

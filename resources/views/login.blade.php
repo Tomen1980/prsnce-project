@@ -45,7 +45,7 @@
             </div>
 
         </div>
-        <div class="full hidden md:w-[55%] md:block lg:h-[119vh] xl:h-[143vh] ">
+        <div class="full hidden md:w-[55%] md:block lg:h-[119vh] xl:h-[143vh] 2xl:h-[131vh] ">
             <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
         </div>
     </div>

@@ -26,7 +26,15 @@ class absenController extends Controller
         return redirect('/dashboard');
     }
 
-    public function absenpulang(){
+    public function absenpulang($id){
+        return dd($id);
         return view('absenpulang');
+    }
+
+    public function absenpulangAction(Request $request){
+       ;
+    }
+    public function izinAction(Request $request){
+       return view('izin')  ;
     }
 }

@@ -1,42 +1,47 @@
   <!-- Modal Section -->
   <div id="profileModal" class="fixed inset-0 flex items-center justify-center z-20 hidden bg-black bg-opacity-50 ">
-      <div class="bg-slate-700 p-5 rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
-          <button id="closeModal" class="absolute top-4 right-4 text-white py-2 px-3 rounded-lg bg-red-500">X</button>
+      <div class="bg-[#2F2F2F] rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
+          <button id="closeModal" class="absolute top-0 right-0 text-white font-semibold rounded-bl-lg rounded-tr-lg font-fredoka py-2 px-3  bg-red-500">X</button>
 
           <div class="text-center text-white space-y-3 " id="profileContent">
               <img src="{{ Storage::url('users/' . Auth::user()->image) }}" alt="Profile Image"
                   class="w-[100px] h-[100px] rounded-full mx-auto mb-3">
               <div class="flex w-1/2 justify-center items-center mx-auto gap-2">
-                  <h2 class="text-lg font-bold">{{ Auth::user()->name }}</h2>
-                  <a href="#" id="editProfileButton" class="px-2 bg-[#0EA5E9] rounded-lg">Edit</a>
+                  <h2 class="text-lg font-semibold font-fredoka">{{ Auth::user()->name }}</h2>
+                  <a href="#" id="editProfileButton" class="px-2 bg-[#0EA5E9] font-fredoka rounded-lg">Edit</a>
               </div>
               @if(Auth::user()->role == 'intern')
               <div>
 
               <div class="flex w-[40%] mx-auto">
                   <div class="w-[40%] h-10 ">
-                      <label for="" class="text-white">Tipe</label>
-                      <p class="w-full bg-[#712727] rounded-l-lg">Intern</p>
+                      <label for="" class="text-white font-fredoka">Tipe</label>
+                      <p class="w-full bg-[#712727] font-fredoka rounded-l-lg">Intern</p>
                   </div>
                   <div class="w-[60%] h-10 ">
-                      <label for="" class="text-white">Unit</label>
-                      <p class="w-full bg-input-primary rounded-r-lg">Marketing</p>
+                      <label for="" class="text-white font-fredoka">Unit</label>
+                      <p class="w-full bg-input-primary font-fredoka rounded-r-lg">Marketing</p>
                   </div>
               </div>
-              <div class="w-[40%] mx-auto ">
-                  <label for="" class="text-white">Instansi</label>
-                  <p class="w-full bg-input-primary rounded-lg">ABC Corporation</p>
+              <div class="w-[40%] mx-auto mt-5 text-left">
+                  <label for="" class="text-white font-fredoka">Instansi</label>
+                  <p class="w-full bg-input-primary font-fredoka rounded-lg">ABC Corporation</p>
               </div>
-              <div class="w-[40%] mx-auto ">
-                  <label for="" class="text-white">Mentor</label>
-                  <p class="w-full bg-input-primary rounded-lg">Jane Smith</p>
+              <div class="w-[40%] mx-auto mt-3 text-left ">
+                  <label for="" class="text-white font-fredoka">Mentor</label>
+                  <p class="w-full bg-input-primary font-fredoka rounded-lg">Jane Smith</p>
               </div>
             </div>
             @endif
               <form action="/logout" method="POST">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="mt-5 bg-[#712727] text-white px-4 py-2 rounded">Logout</button>
+                  <div class='flex justify-center h-[40px] w-full mt-9'>
+                    <button type='submit' class=' bg-[#C64C4C] text-white px-2 py-2 rounded-tl-xl'>
+                        <img src='/img/logo-tangan.png' alt='' class='w-[135%] h-[135%] object-contain'>
+                    </button>
+                    <button type="submit" class=" bg-[#712727] text-white px-8 rounded-tr-xl font-fredoka  ">Logout</button>
+                </div>
               </form>
           </div>
 
@@ -66,29 +71,29 @@
                           </div>
                       </div>
                       @error('image')
-                          <div class="alert alert-danger">{{ $message }}</div>
+                          <div class="alert alert-danger text-red-500">{{ $message }}</div>
                       @enderror
-                      <div class="flex w-1/2 justify-center items-center mx-auto gap-2">
-                          <h2 class="text-lg font-bold">Edit Profile</h2>
-                      </div>
-                      <div class="w-[60%] mx-auto">
-                          <label for="oldPass" class="text-white">Old Password</label>
+                      {{-- <div class="flex w-1/2 justify-center items-center mx-auto gap-2">
+                          <h2 class="text-lg font-bold font-fredoka">Edit Profile</h2>
+                      </div> --}}
+                      <div class="w-[60%] mx-auto text-left">
+                          <label for="oldPass" class="text-[#B1ADAD] font-fredoka ">Old Password</label>
                           @error('oldPass')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                           <input type="text" name="oldPass" id="oldPass"
                               class="w-full bg-input-primary rounded-lg md:p-1 lg:p-2 placeholder:pl-2" value="">
                       </div>
-                      <div class="w-[60%] mx-auto">
-                          <label for="password" class="text-white">Password</label>
+                      <div class="w-[60%] mx-auto text-left">
+                          <label for="password" class="text-[#B1ADAD] font-fredoka">New Password</label>
                           @error('password')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
                           <input type="password" name="password" id="password"
                               class="w-full bg-input-primary rounded-lg md:p-1 lg:p-2 placeholder:pl-2" value="">
                       </div>
-                      <div class="w-[60%] mx-auto">
-                          <label for="passwordVerify" class="text-white">PasswordVerify</label>
+                      <div class="w-[60%] mx-auto text-left">
+                          <label for="passwordVerify" class="text-[#B1ADAD] font-fredoka">PasswordVerify</label>
                           @error('passwordVerify')
                               <div class="alert alert-danger">{{ $message }}</div>
                           @enderror
@@ -96,17 +101,27 @@
                               class="w-full bg-input-primary rounded-lg md:p-1 lg:p-2 placeholder:pl-2" value="">
                       </div>
                       <!-- Form input lainnya -->
-                      <div class="flex justify-center gap-2">
-                          <button type="submit" class="mt-5 bg-blue-500 text-white px-4 py-2 rounded">Update</button>
+                      <div class="flex justify-center h-[65px]">
                           <a href="#" id="backButton" type="submit"
-                              class="mt-5 bg-red-500 text-white px-4 py-2 rounded">Kembali</a>
-                      </div>
+                              class="mt-5  bg-[#D40505] text-white px-6 py-2  rounded-l font-fredoka text-xl font-semibold ">X</a>
+                            <div class='flex'>
+                                <button type="submit" class="mt-5 bg-[#0EA5E9] text-white px-6 rounded-r">
+                                    <img src='/img/cekkk-removebg-preview 1.png' alt='' class=' h-[40%]  object-contain'>
+                                </button>
+                            </div>
+                      </div>    
                   </div>
               </form>
               <form action="/logout" method="POST">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="mt-5 bg-[#712727] text-white px-4 py-2 rounded">Logout</button>
+                  <div class='flex justify-center h-[40px] w-full mt-12 '>
+                        <button type='submit' class=' bg-[#C64C4C] text-white px-2 py-2 rounded-tl-xl'>
+                            <img src='/img/logo-tangan.png' alt='' class='w-[135%] h-[135%] object-contain'>
+                        </button>
+                        <button type="submit" class=" bg-[#712727] text-white px-8 rounded-tr-xl font-fredoka  ">Logout</button>
+                    </div>
+                  {{-- <button type="submit" class="mt-5 bg-[#712727] text-white px-4 py-2 rounded">Logout</button> --}}
               </form>
           </div>
       </div>
