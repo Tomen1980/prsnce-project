@@ -49,4 +49,5 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
     Route::put('/units/{id}', [UnitController::class, 'update']);
     Route::delete('/units/{id}', [UnitController::class, 'destroy']);
     Route::get('/searchUnits', [UnitController::class, 'searchUnits'])->name('searchUnits');
+    Route::get('/izin', [absenController::class, 'izinAction']);
 });
