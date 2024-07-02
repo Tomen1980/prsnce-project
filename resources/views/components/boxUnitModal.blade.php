@@ -1,7 +1,7 @@
 <div id="unitModal" class="fixed inset-0 flex items-center justify-center z-20 hidden bg-black bg-opacity-50">
     <div class="bg-[#2F2F2F] p-5 rounded-lg shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative">
         <button id="closeModalUnit"
-            class=" absolute top-0 right-0 text-white font-fredoka font-semibold text-xl py-2 px-3 rounded-bl-lg rounded-tr-lg bg-red-500">X</button>
+        class="absolute top-0 right-0 text-white font-semibold rounded-bl-lg rounded-tr-lg font-fredoka py-2 px-3  bg-red-500">X</button>
         <form class="text-center text-black space-y-7" id="unitForm">
             @csrf
             @method('POST')

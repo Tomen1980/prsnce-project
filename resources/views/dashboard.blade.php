@@ -22,6 +22,8 @@
         @include('components.boxModelProfile')
         @include('components.boxModelAbsen')
         @include('components.boxModelRules')
+        @include('components.boxModelStatistik')
+
         <section id="wrap">
 
 
@@ -52,23 +54,25 @@
                                     </div>
                                     <p
                                         class="text-white font-fredoka font-medium text-sm text-center md:text-lg lg:text-xl xl:text-md text-justify">
-                                        Dirancang untuk memenuhi kebutuhan karyawan dan peserta magang di berbagai organisasi.
-                                        Dengan fitur yang user-friendly dan efisien, Prsnce memungkinkan pencatatan kehadiran yang
+                                        Dirancang untuk memenuhi kebutuhan karyawan dan peserta magang di berbagai
+                                        organisasi.
+                                        Dengan fitur yang user-friendly dan efisien, Prsnce memungkinkan pencatatan
+                                        kehadiran yang
                                         akurat serta pembuatan laporan kerja terperinci untuk peserta magang.
                                     </p>
                                 </div>
                             </div>
-                        <div class="hidden md:block md:relative md:w-1/2">
-                            <img src="img/hero3.png" alt="" class="object-cover w-full absolute bottom-0 ">
+                            <div class="hidden md:block md:relative md:w-1/2">
+                                <img src="img/hero3.png" alt="" class="object-cover w-full absolute bottom-0 ">
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
 
             </section>
 
-            <section class="hidden 2xl:block absolute z-10 top-96 -right-32">
-                <div class="flex  items-center justify-center ">
+            <section class="hidden 2xl:block absolute z-10  top-[390px]">
+                <div class="flex  items-center justify-center">
                     <div
                         class=" w-[30%] h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 space-y-7 rounded-3xl">
                         <h1 class="text-white font-fredoka font-semibold xl:text-2xl ">Efisiensi dan Kemudahan Penggunaan
@@ -104,7 +108,8 @@
                     </div>
                     <div class="w-1/2 p-20">
                         <h1 class="text-white font-fredoka font-semibold lg:text-6xl xl:text-7xl mb-5">Hadir? Hadir.</h1>
-                        <p class="text-white font-fredoka font-medium lg:text-xl xl:text-md text-justify">Menghadirkan solusi terdepan
+                        <p class="text-white font-fredoka font-medium lg:text-xl xl:text-md text-justify">Menghadirkan
+                            solusi terdepan
                             untuk pengelolaan data absensi yang dirancang khusus untuk karyawan dan peserta magang di Witel
                             Lembong. Prsnce mempermudah pencatatan kehadiran dengan sistem yang efisien dan user-friendly,
                             memastikan setiap jam kerja tercatat dengan akurat. Selain itu, Prsnce juga menawarkan fitur
@@ -120,29 +125,30 @@
             <section class="grid grid-cols-1 gap-5 md:grid-cols-8 bg-white my-10 md:w-[90%] lg:w-[75%] mx-auto">
                 <a id="{{ $absen ? '' : 'absenButton' }}" href="{{ $absen ? '' : '#' }}"
                     class="w-full flex justify-center  md:col-span-4 relative group">
-                    <img src="img/absenMasuk.png" alt=""
+                    <img src="/img/absenMasuk.png" alt=""
                         class="object-cover w-[75%] md:w-full  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
                     @if ($absen)
                         <div class="absolute inset-0 bg-black opacity-50 rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl "
                             onclick="alert('Anda Sudah Absen')"></div>
                     @endif
                 </a>
+
                 <a href="{{ $absen && $absen->absenMasuk !== null && $pulang === null ? "/absenpulang/$absen->id" : '#' }}"
                     class="w-full flex justify-center  md:col-span-4 relative group"
                     onclick="if('{{ $pulang !== null }}' === '1') { alert('Hari ini Anda sudah absen pulang'); return false; }">
-                     <img src="img/absenPulang.png" alt=""
-                           class="object-cover w-[75%] md:w-full md:h-[103%]  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
-                     @if (!$absen || $absen->absenMasuk === null || $pulang !== null)
-                         <div class="absolute inset-0 bg-black opacity-50 rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl"
-                              onclick="event.stopPropagation(); alert('{{ $pulang !== null ? 'Hari ini Anda sudah absen pulang' : ($absen && $absen->absenMasuk === null ? 'Anda Sedang Izin' : 'Anda Perlu Melakukan Absensi ') }}')">
-                         </div>
-                     @endif
-                 </a>
-                 
-                 
+                    <img src="/img/absenPulang.png" alt=""
+                        class="object-fill w-[75%] md:w-full md:h-[103%]  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
+                    @if (!$absen || $absen->absenMasuk === null || $pulang !== null)
+                        <div class="absolute inset-0 bg-black opacity-50 rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl"
+                            onclick="event.stopPropagation(); alert('{{ $pulang !== null ? 'Hari ini Anda sudah absen pulang' : ($absen && $absen->absenMasuk === null ? 'Anda Sedang Izin' : 'Anda Perlu Melakukan Absensi ') }}')">
+                        </div>
+                    @endif
+                </a>
+
+
                 <a href="" class="w-full flex justify-center md:col-span-3 group">
-                    <img src="img/riwayatAbsen.png" alt=""
-                        class="object-fill w-[75%] md:w-full md:h-[101%] rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
+                    <img src="/img/riwayatAbsen.png" alt=""
+                        class="object-cover w-[75%] md:w-full  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
                 </a>
 
                 <button class="w-full flex justify-center  md:col-span-3 group" id="openModalRules">
@@ -150,10 +156,10 @@
                         class="object-cover w-[75%] md:w-full  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
                 </button>
 
-                <a href="" class="w-full flex justify-center  md:col-span-2 group">
+                <button id="openModalStatistik" class="w-full flex justify-center  md:col-span-2 group">
                     <img src="img/statistik.png" alt=""
                         class="object-cover w-[75%] md:w-full  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
-                </a>
+                </button>
             </section>
         @elseif (Auth::user()->role == '4dm1n')
             <section class="grid grid-cols-1 gap-5  md:grid-cols-8 bg-white my-10  md:w-[90%] lg:w-[75%] mx-auto">
@@ -165,8 +171,8 @@
                     <img src="img/listIntern.png" alt=""
                         class="object-cover w-[75%] md:w-full rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
                 </a>
-                <a href="/" class="w-full flex justify-center  md:col-span-3 group">
-                    <img src="img/addUnit.png" alt=""
+                <a href="/monitor" class="w-full flex justify-center  md:col-span-3 group">
+                    <img src="img/monitoring.png" alt=""
                         class="object-fill w-[75%] md:w-full rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
                 </a>
 
@@ -184,9 +190,10 @@
         @include('Layouts.footer')
 
         <!-- Modal Section -->
-      
+
 
     </section>
+
 
     @if (Auth::user()->role == 'intern')
         <script>
@@ -207,17 +214,55 @@
 
 
             })
+
+            $(document).ready(function() {
+                function animateValue(id, start, end, duration) {
+                    var range = end - start;
+                    var current = start;
+                    var increment = end > start ? 1 : -1;
+                    var stepTime = Math.abs(Math.floor(duration / range));
+                    var obj = $(id);
+                    var timer = setInterval(function() {
+                        current += increment;
+                        obj.text(current);
+                        if (current == end) {
+                            clearInterval(timer);
+                        }
+                    }, stepTime);
+                }
+
+                function startAnimations() {
+                    animateValue("#totalHadir", {{ $totalHadir }}*50, {{ $totalHadir }}, 2000);
+                    animateValue("#totalAlfa",  {{ $totalAlfa }}*50, {{ $totalAlfa }}, 2000);
+                    animateValue("#totalIzin",  {{ $totalIzin}}*50, {{ $totalIzin }}, 2000);
+                }
+
+                // Inisialisasi animasi ketika modal dibuka
+                $('#statistikModal').on('show', function() {
+                    startAnimations();
+                });
+
+                // Buka modal dan mulai animasi
+                $('#openModalStatistik').click(function() {
+                    $('#statistikModal').removeClass('hidden').trigger('show');
+                });
+
+                // Tutup modal
+                $('#closeModalStatistik').click(function() {
+                    $('#statistikModal').addClass('hidden');
+                });
+            });
         </script>
     @endif
 
 
     <script>
         // Open Modal Rules
-            $("#openModalRules").click(function() {
-                $("#rulesModal").removeClass("hidden");
-            });
-    
-            // Close Modal Rules
+        $("#openModalRules").click(function() {
+            $("#rulesModal").removeClass("hidden");
+        });
+
+        // Close Modal Rules
         $("#closeModalRules").click(function() {
             $("#rulesModal").addClass("hidden");
         })

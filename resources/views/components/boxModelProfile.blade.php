@@ -1,7 +1,7 @@
   <!-- Modal Section -->
   <div id="profileModal" class="fixed inset-0 flex items-center justify-center z-20 hidden bg-black bg-opacity-50 ">
       <div class="bg-slate-700 p-5 rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
-          <button id="closeModal" class="absolute top-4 right-4 text-white py-2 px-3 rounded-lg bg-red-500">X</button>
+          <button id="closeModal" class="absolute top-0 right-0 text-white font-semibold rounded-bl-lg rounded-tr-lg font-fredoka py-2 px-3  bg-red-500">X</button>
 
           <div class="text-center text-white space-y-3 " id="profileContent">
               <img src="{{ Storage::url('users/' . Auth::user()->image) }}" alt="Profile Image"
@@ -16,20 +16,24 @@
               <div class="flex w-[40%] mx-auto">
                   <div class="w-[40%] h-10 ">
                       <label for="" class="text-white">Tipe</label>
-                      <p class="w-full bg-[#712727] rounded-l-lg">Intern</p>
+                      <p class="w-full bg-[#712727] rounded-l-lg">@if (session('internType'))
+                        {{session('internType')}}
+                      @endif</p>
                   </div>
                   <div class="w-[60%] h-10 ">
                       <label for="" class="text-white">Unit</label>
-                      <p class="w-full bg-input-primary rounded-r-lg">Marketing</p>
+                      <p class="w-full bg-input-primary rounded-r-lg">@if (session('unitType'))
+                        {{session('unitType')}}
+                      @endif</p>
                   </div>
               </div>
               <div class="w-[40%] mx-auto ">
                   <label for="" class="text-white">Instansi</label>
-                  <p class="w-full bg-input-primary rounded-lg">ABC Corporation</p>
+                  <p class="w-full bg-input-primary rounded-lg">{{Auth::user()->instansi}}</p>
               </div>
               <div class="w-[40%] mx-auto ">
                   <label for="" class="text-white">Mentor</label>
-                  <p class="w-full bg-input-primary rounded-lg">Jane Smith</p>
+                  <p class="w-full bg-input-primary rounded-lg">{{Auth::user()->mentor}}</p>
               </div>
             </div>
             @endif

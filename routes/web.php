@@ -42,6 +42,11 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
     Route::post('/absen', [absenController::class, 'actionAbsenMasuk']);
     Route::get('/absenpulang/{id}', [absenController::class, 'absenpulang']);
     Route::post('/absenPulangAction', [absenController::class, 'actionAbsenPulang']);
+    // Izin
+    Route::get('/formIzin', [absenController::class, 'formIzin']);
+    Route::post('/izinAction', [absenController::class, 'actionIzin']);
+    
+
     // UNIT Fitur
     Route::get('/units', [UnitController::class, 'index']);
     Route::post('/units', [UnitController::class, 'store']);
@@ -49,4 +54,10 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
     Route::put('/units/{id}', [UnitController::class, 'update']);
     Route::delete('/units/{id}', [UnitController::class, 'destroy']);
     Route::get('/searchUnits', [UnitController::class, 'searchUnits'])->name('searchUnits');
+
+
+    Route::get('/monitor', [absenController::class, 'monitor'])->middleware('RoleAuthenticated');
+    Route::get('/searchMonitor', [absenController::class, 'searchMonitor'])->name('searchMonitor')->middleware('RoleAuthenticated');
 });
+Route::get('chart', [AuthController::class, 'chart']);
+
