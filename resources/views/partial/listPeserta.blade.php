@@ -4,7 +4,7 @@
         <div class="relative flex mt-5 w-[80%] bg-input-primary  p-3 rounded-2xl border-2 items-center overflow-x-auto">
             <div class="w-[20%] md:w-[10%]">
                 <div class="w-[60px] h-[60px] rounded-full md:w-[70px] md:h-[70px] mx-auto">
-                    <img src="img/profile.png" alt="Profile Image" class="object-cover w-full h-full ">
+                    <img src="{{ Storage::url('users/' . $item->image) }}" alt="Profile Image" class="object-cover w-full h-full ">
                 </div>
             </div>
             <div class="ml-10 w-[80%] md:ml-5 md:w-[90%]">

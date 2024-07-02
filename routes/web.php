@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\absenController;
-use App\Http\Controllers\unitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UnitController;
 
 Route::get('/', [AuthController::class, 'loginForm'])
     ->name('login')
@@ -39,9 +39,14 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
         ->middleware('RoleAuthenticated');
 
     Route::put('/updateProfile/{id}', [AuthController::class, 'updateProfile'])->name('updateProfile');
-    Route::post('/absen', [absenController::class, 'actionAbsenMasuk']);    
+    Route::post('/absen', [absenController::class, 'actionAbsenMasuk']);
     Route::get('/absenpulang/{id}', [absenController::class, 'absenpulang']);
-    Route::post('/absenpulangAction', [absenController::class, 'absenpulangAction']);
-    Route::get('/listunit', [unitController::class, 'unit']);
-    Route::get('/izin', [absenController::class, 'izinAction']);
+    Route::post('/absenPulangAction', [absenController::class, 'actionAbsenPulang']);
+    // UNIT Fitur
+    Route::get('/units', [UnitController::class, 'index']);
+    Route::post('/units', [UnitController::class, 'store']);
+    Route::get('/units/{id}', [UnitController::class, 'show']);
+    Route::put('/units/{id}', [UnitController::class, 'update']);
+    Route::delete('/units/{id}', [UnitController::class, 'destroy']);
+    Route::get('/searchUnits', [UnitController::class, 'searchUnits'])->name('searchUnits');
 });

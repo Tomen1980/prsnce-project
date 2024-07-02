@@ -15,6 +15,7 @@
                         </div>
                     </button>   
                 </form>
+<<<<<<< HEAD
                 <div class=" w-full h-[25vh] bg-[#D40505] rounded-b-xl md:rounded-r-xl flex justify-center items-center hover:bg-opacity-50">
                     <button class=" text-white font-fredoka font-medium text-xl">
                         <a href='/izin'>
@@ -23,6 +24,16 @@
                         </a>
                     </button>
                 </div>
+=======
+                <form action="/absen?status=izin" method="POST" class="w-full h-[25vh] bg-yellow-300 rounded-lg flex justify-center items-center hover:bg-yellow-600">
+                    @csrf
+                    @method('POST')
+                    <button type="submit">
+                        <h2 class="text-lg font-bold">Izin</h2>
+                    </button>
+                </form>
+               
+>>>>>>> 9df33607cc109f842095c22ced41153d85c3f4ea
             </div>
 
         </div>

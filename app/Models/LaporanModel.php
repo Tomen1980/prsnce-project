@@ -10,5 +10,5 @@ class LaporanModel extends Model
     protected $table = 'laporan';
 
     protected $fillable = ['deskripsi', 'id_absen'];
-    protected $timestamps = false;
+    public $timestamps = false;
 }

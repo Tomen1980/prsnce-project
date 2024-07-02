@@ -22,18 +22,16 @@
             <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
-            <div class="absolute top-0 w-full flex">
-                <div class="w-1/2">
-                    <img src="img/logo-dashboard.png" alt="" class="object-cover w-full">
-                </div>
-                <div class="w-1/2">
-                    <div class="w-[15%] lg:w-[10%] xl:w-[6%] bg-slate-700 h-[150px] sm:h-[200px] md:h-[250px] lg:h-[200px] rounded-b-[30px] fixed top-0 right-5 z-10"
-                        id="profile">
-                        <div>
-                            <img src="img/profile.png" alt="Profile Image"
-                                class="object-cover w-[70%] mx-auto mt-5 h-full rounded-full">
-                            <img src="img/hand.png" alt="Profile Image" class="object-cover w-[70%] mx-auto h-full">
-                        </div>
+            <div class="absolute w-full top-0 flex justify-between">
+                <img src="img/mini-logo.png" alt=""
+                    class="w-1/2 lg:w-1/4 lg:block lg:h-[155px] ml-6 mt-5 md:w-2/6 md:h-2/4">
+                {{-- <img src="img/profile.png" alt="" class="w-[15%] lg:w-[8%] mr-5 md:w-[9%] md:h-[9%]"> --}}
+                <div class="w-[15%] lg:w-[10%] xl:w-[6%] bg-slate-700 h-[150px] sm:h-[200px] md:h-[250px] lg:h-[200px] rounded-b-[30px] fixed top-0 right-5 z-10"
+                    id="profile">
+                    <div>
+                        <img src="img/profile.png" alt="Profile Image"
+                            class="object-cover w-[70%] mx-auto mt-5 h-full rounded-full">
+                        <img src="img/hand.png" alt="Profile Image" class="object-cover w-[70%] mx-auto h-full">
                     </div>
                 </div>
             </div>
@@ -74,8 +72,10 @@
 
     @include('Layouts.footer')
 
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
         $(document).ready(function() {
             $('#search').on('keyup', function() {
                 var search = $(this).val();
