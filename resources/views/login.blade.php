@@ -26,9 +26,10 @@
                         </div>
                     @endif
 
+                    
                     <input type="text" name="email"
-                        class="w-full h-10 bg-input-primary rounded-lg text-white text-sm md:text-lg font-medium placeholder:text-white placeholder:font-fredoka placeholder:font-medium placeholder:pl-2 placeholder:text-sm lg:h-14 md:placeholder:text-lg"
-                        placeholder="Email">
+                    class="w-full h-10 bg-input-primary rounded-lg text-white text-sm md:text-lg font-medium placeholder:text-white placeholder:font-fredoka placeholder:font-medium placeholder:pl-2 placeholder:text-sm lg:h-14 md:placeholder:text-lg"
+                    placeholder="Email">
 
                     <input type="password" name="password"
                         class="w-full h-10 bg-input-primary rounded-lg text-white text-sm md:text-lg font-medium placeholder:text-white placeholder:font-fredoka placeholder:font-medium placeholder:pl-2 placeholder:text-sm lg:h-14 md:placeholder:text-lg"

@@ -1,6 +1,10 @@
   <!-- Modal Section -->
   <div id="profileModal" class="fixed inset-0 flex items-center justify-center z-20 hidden bg-black bg-opacity-50 ">
+<<<<<<< HEAD
       <div class="bg-[#2F2F2F] rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
+=======
+      <div class="bg-slate-700 p-5 rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
+>>>>>>> 214f827aa38b155f03f70ceb7658f624642a333f
           <button id="closeModal" class="absolute top-0 right-0 text-white font-semibold rounded-bl-lg rounded-tr-lg font-fredoka py-2 px-3  bg-red-500">X</button>
 
           <div class="text-center text-white space-y-3 " id="profileContent">
@@ -15,21 +19,25 @@
 
               <div class="flex w-[40%] mx-auto">
                   <div class="w-[40%] h-10 ">
-                      <label for="" class="text-white font-fredoka">Tipe</label>
-                      <p class="w-full bg-[#712727] font-fredoka rounded-l-lg">Intern</p>
+                      <label for="" class="text-white">Tipe</label>
+                      <p class="w-full bg-[#712727] rounded-l-lg">@if (session('internType'))
+                        {{session('internType')}}
+                      @endif</p>
                   </div>
                   <div class="w-[60%] h-10 ">
-                      <label for="" class="text-white font-fredoka">Unit</label>
-                      <p class="w-full bg-input-primary font-fredoka rounded-r-lg">Marketing</p>
+                      <label for="" class="text-white">Unit</label>
+                      <p class="w-full bg-input-primary rounded-r-lg">@if (session('unitType'))
+                        {{session('unitType')}}
+                      @endif</p>
                   </div>
               </div>
-              <div class="w-[40%] mx-auto mt-5 text-left">
-                  <label for="" class="text-white font-fredoka">Instansi</label>
-                  <p class="w-full bg-input-primary font-fredoka rounded-lg">ABC Corporation</p>
+              <div class="w-[40%] mx-auto ">
+                  <label for="" class="text-white">Instansi</label>
+                  <p class="w-full bg-input-primary rounded-lg">{{Auth::user()->instansi}}</p>
               </div>
-              <div class="w-[40%] mx-auto mt-3 text-left ">
-                  <label for="" class="text-white font-fredoka">Mentor</label>
-                  <p class="w-full bg-input-primary font-fredoka rounded-lg">Jane Smith</p>
+              <div class="w-[40%] mx-auto ">
+                  <label for="" class="text-white">Mentor</label>
+                  <p class="w-full bg-input-primary rounded-lg">{{Auth::user()->mentor}}</p>
               </div>
             </div>
             @endif

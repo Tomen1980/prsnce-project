@@ -17,7 +17,7 @@
                 </form>
                 <div class=" w-full h-[25vh] bg-[#D40505] rounded-b-xl md:rounded-r-xl flex justify-center items-center hover:bg-opacity-50">
                     <button class=" text-white font-fredoka font-medium text-xl">
-                        <a href='/izin'>
+                        <a href='/formizin'>
                             <img src='/img/izin.png' alt='' class=' w-[100px]'>
                             <h3> Izin </h3>
                         </a>

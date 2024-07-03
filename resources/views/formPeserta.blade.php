@@ -51,6 +51,7 @@
                 <form action="{{ $action == 'update' ? route('updatePeserta', ['id' => $data->id]) : route('addPeserta') }}"
                     method="POST">
                     @csrf
+                    
                     @if ($action == 'update')
                         @method('PUT')
                     @else
