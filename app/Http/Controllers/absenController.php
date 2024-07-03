@@ -61,4 +61,7 @@ class absenController extends Controller
     public function izinAction(Request $request){
        return view('izin')  ;
     }
+    public function riwayatPresensi(){
+        return view('riwayatpresensi');
+    }
 }

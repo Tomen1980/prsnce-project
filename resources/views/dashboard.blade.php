@@ -27,7 +27,7 @@
 
             <section class="relative">
 
-                <div class="w-full h-[350px] lg:h-[400px] xl:h-[500px]  relative">
+                <div class="w-full h-[350px] lg:h-[400px] xl:h-[500px]   relative">
                     <!-- Gambar Latar Belakang -->
                     <img src="img/bg-login.png" alt="Background Image" class="object-cover w-full h-full ">
                     {{-- Pop up Profile --}}

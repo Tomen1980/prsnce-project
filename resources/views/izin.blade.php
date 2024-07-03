@@ -39,7 +39,7 @@
                                         </select>
                                 {{-- </div> --}}
                             </div>
-                            <textarea type='text' name='deskripsi' class="w-full lg:w-2/3 lg:block mx-auto h-72 bg-white rounded-b-xl placeholder:text-gray-300-500 placeholder:font-fredoka placeholder:font-normal placeholder:pl-2 placeholder:text-sm lg:h-56 md:placeholder:text-lg:" placeholder="isi kegiatan mu hari ini"></textarea>
+                            <textarea type='text' name='deskripsi' class="w-full lg:w-2/3 lg:block mx-auto h-72 bg-white rounded-b-xl placeholder:text-gray-300-500 placeholder:font-fredoka placeholder:font-normal placeholder:pl-2 placeholder:text-sm lg:h-56 md:placeholder:text-lg:" placeholder="isi alasan mu"></textarea>
                     </div>
                     <button type='submit 'class ='w-1/2 bg-[#302E2E] h-14 block mx-auto rounded-2xl text-white font-fredoka font-medium text-xl lg:text-2xl mt-5 lg:w-1/4'>Unggah</button>
                 </div>
