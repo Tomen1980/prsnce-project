@@ -25,10 +25,7 @@ class absenController extends Controller
         $absen = new absensiModel();
         $absen->id_user = $user->id;
         $absen->tanggal = $currentDate;
-        // if ($request->status == 'izin') {
-        //     $absen->save();
-        //     return redirect('/formIzin/' . $absen->id);
-        // }
+
         $absen->absenMasuk = $currentTime;
         $absen->save();
         return redirect('/dashboard');
