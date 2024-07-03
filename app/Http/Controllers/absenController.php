@@ -153,4 +153,18 @@ class absenController extends Controller
             'absenData' => $absenData
         ]);
     }
+    public function searchRiwayat(Request $request) {
+        $search = $request->input('search');
+        $query = $absenData = DB::table('absensi')::query();
+        if(!empty($search)) {
+            $query->where('date', 'like', '%' . $search . '%');
+        }
+        $units = $query->paginate(16);
+
+        if ($request->ajax()) {
+            return view('partial.listUnit', compact('units'))->render();
+        }
+
+        return view('units.indexListUnit', compact('units', 'search'));
+    }
 }
