@@ -18,7 +18,7 @@
         <!-- Modal Section -->
         @include('components.boxModelProfile')
 
-        <div class="w-full relative h-[120vh]">
+        <div class="w-full relative h-[130vh]">
             <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="border-2 bg-white absolute inset-6 mt-36 rounded-xl md:p-5 my-10">
+            <div class="border-2 bg-white absolute inset-6 mt-36 rounded-xl md:p-5 my-14">
                 <div class="flex flex-col flex-wrap items-center lg:flex-row lg:w-full lg:justify-between">
                     <h1 class="text-2xl mt-5 font-semibold text-center font-fredoka mb-5 md:text-4xl lg:text-4xl">Riwayat
                         Presensi</h1>
@@ -56,7 +56,7 @@
                     PRSNCE. akan memperlihatkan riwayat kehadiranmu disini!
                 </p>
                 <!-- Table -->
-                <div id="item-list" class="w-full h-[70%] overflow-y-auto">
+                <div id="item-list" class="w-full h-[70%] overflow-y-auto ">
 
                     @forelse ($absenData as $item)
                         <div class="flex w-[85%] mt-10 h-[100px]  justify-center items-center m-auto  border-red-400">
@@ -99,13 +99,14 @@
                                 </a>
                             @elseif ($item->status == 'Izin')
                                 <a href=""
-                                    class=" lg:w-[5%] md:w-[8%] h-[70px] bg-red-500 border-2 rounded-r-2xl p-2 ">
-                                    <img src="img/logo-tangan.png" alt="" class="object-cover w-full h-full ">
+                                    class=" w-[53px] lg:w-[5%] md:w-[8%] h-[70px] bg-[#D40505] border-2 rounded-r-2xl p-2 ">
+                                    <img src="img/izin.png" alt="" class="object-cover w-[70px] h-[30px] mt-3  ">
                                 </a>
                             @elseif ($item->status == 'Alfa')
                                 <a href=""
-                                    class=" lg:w-[5%] md:w-[8%] h-[70px] bg-yellow-500 border-2 rounded-r-2xl p-2 ">
-                                    <img src="img/logo-tangan.png" alt="" class="object-cover w-full h-full ">
+                                    class=" w-[53px] lg:w-[5%] md:w-[8%] h-[70px] bg-[#C5C906] border-2 rounded-r-2xl p-2 ">
+                                    {{-- <img src="img/tandatanya.png" alt="" class="object-cover w-[25px] h-[25px] mt-3 "> --}}
+                                    <p class='font-fredoka bold text-white font-bold text-5xl text-center'>?</p>
                                 </a>
                             @endif
                         </div>
@@ -113,10 +114,11 @@
                     @empty
                         <p>Tidak ada data</p>
                     @endforelse
-
                 </div>
-
                 <!-- End Table -->
+                <div class='flex bg-[#0EA5E9] w-[50px] h-[50px] justify-center items-center rounded-md border-2 absolute bottom-5 left-5'>
+                    <img src='img/printer.png'  class='object-cover w-[70%]'>
+                </div>
             </div>
             <a href="/dashboard"
                 class="absolute bottom-5 left-5 py-1 px-5 md:py-2 md:px-10 rounded-lg text-white font-semibold font-fredoka bg-[#990D26]">Kembali</a>
@@ -127,24 +129,25 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#search').on('keyup', function() {
-                var search = $(this).val();
-                $.ajax({
-                    url: '{{ route('searchPeserta') }}',
-                    type: 'GET',
-                    data: {
-                        'search': search
-                    },
-                    success: function(data) {
-                        $('#item-list').html(data);
-                    },
-                    error: function(xhr) {
-                        console.error('Request failed:', xhr.responseText);
-                    }
-                });
+<script>
+    $(document).ready(function() {
+        $('#search, #date').on('keyup change', function() {
+            var search = $('#search').val();
+            // var date = $('#date').val();
+            $.ajax({
+                url: '{{ route('searchRiwayat') }}',
+                type: 'GET',
+                data: {
+                    'search': search,
+                },
+                success: function(data) {
+                    $('#item-list').html(data);
+                },
+                error: function(xhr) {
+                    console.error('Request failed:', xhr.responseText);
+                }
             });
         });
-    </script>
+    });
+</script>
 @endsection
