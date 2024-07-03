@@ -144,7 +144,7 @@ class absenController extends Controller
                 DB::raw('COALESCE(izin.keterangan, laporan.deskripsi, "Tidak ada keterangan") AS keterangan'),
             )
             ->where('absensi.id_user', Auth::user()->id)
-            ->orderBy('absensi.tanggal')
+            ->latest('absensi.tanggal')
             ->get();
 
         // return dd($absenData);
@@ -155,16 +155,33 @@ class absenController extends Controller
     }
     public function searchRiwayat(Request $request) {
         $search = $request->input('search');
-        $query = $absenData = DB::table('absensi')::query();
-        if(!empty($search)) {
-            $query->where('date', 'like', '%' . $search . '%');
-        }
-        $units = $query->paginate(16);
+
+        $query = DB::table('absensi')
+            ->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')
+            ->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')
+            ->select(
+                'absensi.tanggal',
+                DB::raw('
+                    CASE
+                        WHEN laporan.id IS NOT NULL THEN "Hadir"
+                        WHEN izin.id IS NOT NULL THEN "Izin"
+                        ELSE "Alfa"
+                    END AS status
+                '),
+                DB::raw('COALESCE(izin.keterangan, laporan.deskripsi, "Tidak ada keterangan") AS keterangan'),
+            )
+            ->where('absensi.id_user', Auth::user()->id)
+            ->where(function ($query) use ($search) {
+                $query->where('absensi.tanggal', 'like', '%' . $search . '%');
+            })
+            ->orderBy('absensi.tanggal');
+
+        $absenData = $query->paginate(10);
 
         if ($request->ajax()) {
-            return view('partial.listUnit', compact('units'))->render();
+            return view('partial.listRiwayatPresensi', compact('absenData'))->render();
         }
 
-        return view('units.indexListUnit', compact('units', 'search'));
+        return view('riwayatPresensi', compact('absenData', 'search'));
     }
 }
