@@ -13,23 +13,23 @@
     @endif
 
 
+    @include('components.boxModelProfile')
+    @include('components.boxModelAbsen')
+    @include('components.boxModelRules')
+    @include('components.boxModelStatistik')
 
 
 
 
     <section class="bg-white">
 
-        @include('components.boxModelProfile')
-        @include('components.boxModelAbsen')
-        @include('components.boxModelRules')
-        @include('components.boxModelStatistik')
 
         <section id="wrap">
 
 
             <section class="relative">
 
-                <div class="w-full h-[350px] lg:h-[400px] xl:h-[500px]   relative">
+                <div class="w-full h-[350px] lg:h-[400px] xl:h-[500px]  relative">
                     <!-- Gambar Latar Belakang -->
                     <img src="img/bg-login.png" alt="Background Image" class="object-cover w-full h-full ">
                     {{-- Pop up Profile --}}
@@ -146,7 +146,7 @@
                 </a>
 
 
-                <a href="" class="w-full flex justify-center md:col-span-3 group">
+                <a href="/riwayatPresensi" class="w-full flex justify-center md:col-span-3 group">
                     <img src="/img/riwayatAbsen.png" alt=""
                         class="object-cover w-[75%] md:w-full  rounded-lg transition-transform duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-xl">
                 </a>

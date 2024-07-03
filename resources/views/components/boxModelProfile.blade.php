@@ -1,10 +1,6 @@
   <!-- Modal Section -->
   <div id="profileModal" class="fixed inset-0 flex items-center justify-center z-20 hidden bg-black bg-opacity-50 ">
-<<<<<<< HEAD
       <div class="bg-[#2F2F2F] rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
-=======
-      <div class="bg-slate-700 p-5 rounded-2xl shadow-lg w-[80%] md:w-[60%] lg:w-[40%] animate-slide-down relative ">
->>>>>>> 214f827aa38b155f03f70ceb7658f624642a333f
           <button id="closeModal" class="absolute top-0 right-0 text-white font-semibold rounded-bl-lg rounded-tr-lg font-fredoka py-2 px-3  bg-red-500">X</button>
 
           <div class="text-center text-white space-y-3 " id="profileContent">
