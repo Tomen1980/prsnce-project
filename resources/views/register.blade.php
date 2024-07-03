@@ -61,7 +61,7 @@
                 <img src="img/register.png" alt="" class="w-[100%] mt-32 left-8 xl:mt-80  ">
             {{-- </div> --}}
         </div>
-        <div class="hidden md:w-[55%] md:block md:h-[106vh] lg:h-[116vh] xl:h-[156vh]">
+        <div class="hidden md:w-[55%] md:block md:h-[106vh] lg:h-[116vh] xl:h-[156vh] 2xl:h-[143vh]">
             <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
         </div>
         {{-- <div class='flex'>

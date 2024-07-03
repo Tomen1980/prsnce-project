@@ -46,8 +46,8 @@
             </div>
 
         </div>
-        <div class="full hidden md:w-[55%] md:block lg:h-[119vh] xl:h-[143vh] ">
-            <img src="img/bg-login.png" alt="" class="object-cover w-full h-full ">
+        <div class="full hidden md:w-[55%] md:block lg:h-[119vh] xl:h-[143vh]  ">
+            <img src="img/bg-login.png" alt="" class="object-cover w-full h-full">
         </div>
     </div>
 @endsection
