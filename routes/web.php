@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\generatePDFController;
 
 Route::get('/', [AuthController::class, 'loginForm'])
     ->name('login')
@@ -60,6 +61,7 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
 
     Route::get('/monitor', [absenController::class, 'monitor'])->middleware('RoleAuthenticated');
     Route::get('/searchMonitor', [absenController::class, 'searchMonitor'])->name('searchMonitor')->middleware('RoleAuthenticated');
+    Route::get('generate-pdf', [generatePDFController::class, 'generatePDF']);
+    Route::get('chart', [AuthController::class, 'chart']);
 });
-Route::get('chart', [AuthController::class, 'chart']);
 

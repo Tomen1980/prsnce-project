@@ -41,7 +41,11 @@ class absenController extends Controller
         $validation = $request->validate([
             'deskripsi' => 'required|min:10',
         ]);
-
+        // return dd($request->all());
+        $absen = absensiModel::find($request->id)->update([
+            'absenPulang' => Carbon::now()->format('H:i:s'),
+        ]);
+        // return $absen;
         $laporan = LaporanModel::create([
             'id_absen' => $request->id,
             'deskripsi' => $request->deskripsi,
@@ -50,7 +54,7 @@ class absenController extends Controller
         if ($laporan) {
             return redirect('/dashboard')->with('success', 'successfully Signing Out');
         } else {
-            return redirect('/absenpulang/' . $request->idAbsen)->with('error', 'Signing Out Failed');
+            return redirect('/absenpulang/' . $request->id)->with('error', 'Signing Out Failed');
         }
     }
 
