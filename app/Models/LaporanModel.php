@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class absensiModel extends Model
+class LaporanModel extends Model
 {
-    protected $table = 'absensi';
-    protected $fillable=["tanggal","absenMasuk","absenPulang","id_user"];
+    protected $table = 'laporan';
+
+    protected $fillable = ['deskripsi', 'id_absen'];
     public $timestamps = false;
 }

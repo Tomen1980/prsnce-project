@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('absensi', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
-            $table->time('absenMasuk');
-            $table->time('absenPulang');
+            $table->date('tanggal')->nullable();
+            $table->time('absenMasuk')->nullable();
+            $table->time('absenPulang')->nullable();
             $table->foreignId('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
            
         });
