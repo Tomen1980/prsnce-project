@@ -75,23 +75,23 @@
                 <div class="flex  items-center justify-center">
                     <div
                         class=" w-[30%] h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-10 space-y-7 rounded-3xl">
-                        <h1 class="text-white font-fredoka font-semibold xl:text-2xl text-justify">Efisiensi dan Kemudahan Penggunaan
+                        <h1 class="text-white font-fredoka font-semibold xl:text-2xl ">Efisiensi dan Kemudahan Penggunaan
                         </h1>
-                        <p class="text-white font-fredoka font-medium xl:text-lg text-justify">Prsnce dirancang untuk mempermudah
+                        <p class="text-white font-fredoka font-medium xl:text-lg">Prsnce dirancang untuk mempermudah
                             pencatatan kehadiran dengan sistem yang sistematis serta user-friendly, memastikan pengguna
                             dapat mengelola absensi dengan mudah dan cepat.</p>
                     </div>
                     <div class="flex w-[50%] h-[70%]">
                         <div class="bg-[#2F2F2F] w-1/3 p-5 items-center">
-                            <h1 class="text-white font-fredoka font-semibold xl:text-2xl mb-5 text-justify">Pelaporan Komprehensif</h1>
+                            <h1 class="text-white font-fredoka font-semibold xl:text-2xl mb-5">Pelaporan Komprehensif</h1>
                             <p class="text-white font-fredoka font-medium xl:text-sm">Menawarkan solusi bagi pembuatan
                                 laporan kerja yang terperinci untuk peserta magang, membantu dalam memonitor progres dan
                                 kinerja</p>
                         </div>
                         <div class="bg-[#424242] w-[45%] p-5 rounded-r-3xl items-center">
-                            <h1 class="text-white font-fredoka font-semibold xl:text-2xl mt-3 mb-9 text-justify">Kepatuhan Terhadap
+                            <h1 class="text-white font-fredoka font-semibold xl:text-2xl mt-3 mb-9">Kepatuhan Terhadap
                                 Standar</h1>
-                            <p class="text-white font-fredoka font-medium xl:text-sm text-justify">Memastikan bahwa perusahaan dapat
+                            <p class="text-white font-fredoka font-medium xl:text-sm">Memastikan bahwa perusahaan dapat
                                 menjaga kepatuhan terhadap standar absensi yang telah ditetapkan, membantu mengurangi risiko
                                 kesalahan pencatatan dan meningkatkan transparansi dalam manajemen kehadiran.</p>
                         </div>

@@ -171,8 +171,16 @@ class UserController extends Controller
                 return back()->with('error', 'email already exists');
             }
         }
-        if($validasi["nip"] !== $verifAccount->id){
-            return back()->with('error', 'nip already exists');
+        // CEK NIP
+        if($validasi["nip"] == $verifAccount->id){
+            $nipValid = $verifAccount->id;
+        }else{
+            $nipValid = User::where('id', $validasi['nip'])->exists();
+             if($nipValid){
+                 return back()->with('error', 'nip already exists');    
+            }else{
+                $nipValid = $validasi['nip'];
+            }
         }
 
         if($validasi["password"] !== $validasi["passwordVerify"]){
@@ -189,7 +197,7 @@ class UserController extends Controller
         $data = User::where('id', $id)->update([
             'name' => $validasi['name'],
             'instansi' => $validasi['instansi'],
-            'id' => $validasi['nip'],
+            'id' => $nipValid,
             'id_intern' => $validasi['tipePeserta'],
             'id_unit' => $validasi['tipeUnit'],
             'email' => $validasi['email'],
