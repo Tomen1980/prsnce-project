@@ -11,8 +11,27 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    @vite('resources/css/app.css')
-    {{-- <link rel="stylesheet" href="build.css"> --}}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#171717',
+                        'input-primary': '#5C5C5C',
+                        'input-placeholder': "#999999"
+                    },
+                    fontFamily: {
+                        'fredoka': 'Fredoka'
+                    },
+                    backgroundImage: {
+                        'bg-login': 'url(/img/bg-login.png)',
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="build.css">
     <style>
         /* Animation */
         .animate-slide-down {

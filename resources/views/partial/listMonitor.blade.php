@@ -24,7 +24,7 @@
                         <div class="text-white text-center font-semibold font-fredoka hidden ">0</div>
                     @else
                         @php
-                            $persenHadir = ($item->total_hadir / $item->total_kehadiran) * 100;
+                            $persenHadir = round(($item->total_hadir / $item->total_kehadiran) * 100);
                         @endphp
                         <div class="flex w-[{{ $persenHadir }}%]  flex-col">
                             <p class="text-white font-semibold font-fredoka ml-3">Hadir</p>
@@ -48,7 +48,7 @@
                         <div class="text-white text-center font-semibold font-fredoka hidden ">0</div>
                     @else
                         @php
-                            $persenAlfa = ($item->total_alfa / $item->total_kehadiran) * 100;
+                            $persenAlfa = round(($item->total_alfa / $item->total_kehadiran) * 100);
                         @endphp
                         <div class="flex w-[{{ $persenAlfa }}%]  flex-col">
                             <p class="text-white font-semibold font-fredoka ml-3">Alfa</p>
@@ -71,14 +71,14 @@
                         <div class="text-white text-center font-semibold font-fredoka hidden ">0</div>
                     @else
                         @php
-                            $persenAlfa = ($item->total_izin / $item->total_kehadiran) * 100;
+                            $persenIzin = round(($item->total_izin / $item->total_kehadiran) * 100);
                         @endphp
-                        <div class="flex w-[{{ $persenAlfa }}%] flex-col">
+                        <div class="flex w-[{{ $persenIzin }}%] flex-col">
                             <p class="text-white font-semibold font-fredoka ml-3">Izin</p>
 
                             <div
                                 class="text-white text-center font-semibold font-fredoka bg-[#D40000]  w-full">
-                                {{ $persenAlfa }}%</div>
+                                {{ $persenIzin }}%</div>
                         </div>
                     @endif
 
