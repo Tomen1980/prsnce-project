@@ -29,7 +29,7 @@
                 <div class="w-[15%] lg:w-[10%] xl:w-[6%] bg-slate-700 h-[150px] sm:h-[200px] md:h-[250px] lg:h-[200px] rounded-b-[30px] fixed top-0 right-5 z-10"
                     id="profile">
                     <div>
-                        <img src="img/profile.png" alt="Profile Image"
+                        <img src="{{ Storage::url('users/' . Auth::user()->image) }}" alt="Profile Image"
                             class="object-cover w-[70%] mx-auto mt-5 h-full rounded-full">
                         <img src="img/hand.png" alt="Profile Image" class="object-cover w-[70%] mx-auto h-full">
                     </div>
