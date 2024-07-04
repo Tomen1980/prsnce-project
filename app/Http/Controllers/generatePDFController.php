@@ -32,7 +32,7 @@ class generatePDFController extends Controller
 
         // return dd($absenData);
 
-        $users = User::all();
+        // $users = User::all();
         $data = [
             'title' => 'Report Magang',
             'date' => date('m/d/Y'),
@@ -42,5 +42,6 @@ class generatePDFController extends Controller
 
         $pdf = Pdf::loadView('myPDF', $data);
         return $pdf->download('Prsnce Magang.pdf');
+        // return Pdf::loadFile(public_path().'/myPDF.blade.php')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
     }
 }

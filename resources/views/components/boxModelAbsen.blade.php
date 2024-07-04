@@ -5,7 +5,7 @@
         <div class="text-center text-white space-y-3 p-5">
             <h2 class="text-lg font-semibold font-fredoka">Presensi</h2>
             <div class=" p-5 w-full flex justify-center flex-col md:flex-row">
-                <form action="/absen" method="POST" class="w-full h-[25vh] bg-[#0EA5E9]  rounded-t-xl md:rounded-l-xl flex justify-center items-center hover:bg-opacity-50">
+                <form action="/absen" method="POST" class="w-full h-[25vh] bg-[#0EA5E9]  rounded-t-xl md:rounded-tr-none md:rounded-l-xl  flex justify-center items-center hover:bg-opacity-50">
                     @csrf
                     @method('POST')
                     <button type="submit">
@@ -15,7 +15,7 @@
                         </div>
                     </button>   
                 </form>
-                <div class=" w-full h-[25vh] bg-[#D40505] rounded-b-xl md:rounded-r-xl flex justify-center items-center hover:bg-opacity-50">
+                <div class=" w-full h-[25vh] bg-[#D40505] rounded-b-xl md:rounded-bl-none md:rounded-r-xl flex justify-center items-center hover:bg-opacity-50">
                     <button class=" text-white font-fredoka font-medium text-xl">
                         <a href='/formIzin'>
                             <img src='/img/izin.png' alt='' class=' w-[100px]'>
