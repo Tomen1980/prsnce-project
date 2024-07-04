@@ -145,7 +145,7 @@ class absenController extends Controller
             )
             ->where('absensi.id_user', Auth::user()->id)
             ->latest('absensi.tanggal')
-            ->get();
+            ->paginate(10);
 
         // return dd($absenData);
 

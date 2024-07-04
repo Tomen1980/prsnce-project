@@ -56,14 +56,18 @@
                     PRSNCE. akan memperlihatkan riwayat kehadiranmu disini!
                 </p>
                 <!-- Table -->
-                <div id="item-list" class="w-full h-[70%] overflow-y-auto ">
+                <div id="item-list" class="w-full h-[70%] overflow-y-auto mb-10">
 
                     @include('partial.listRiwayatPresensi')
-                   
+
                 </div>
                 <!-- End Table -->
-                <a href="/generate-pdf" class='flex bg-[#0EA5E9] w-[50px] h-[50px] justify-center items-center rounded-md border-2 absolute bottom-5 left-5'>
-                    <img src='img/printer.png'  class='object-cover w-[70%]'>
+                <div class="w-full mx-auto flex justify-center ">
+                    {{ $absenData->links() }}
+                </div>
+                <a href="/generate-pdf"
+                    class='flex bg-[#0EA5E9] w-[50px] h-[50px] justify-center items-center rounded-md border-2 absolute bottom-5 left-5'>
+                    <img src='img/printer.png' class='object-cover w-[70%]'>
                 </a>
             </div>
             <a href="/dashboard"
@@ -71,12 +75,13 @@
         </div>
     </section>
 
+
     @include('Layouts.footer')
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-   $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
             $('#search').on('keyup', function() {
                 var search = $(this).val();
                 $.ajax({
@@ -94,5 +99,5 @@
                 });
             });
         });
-</script>
+    </script>
 @endsection
