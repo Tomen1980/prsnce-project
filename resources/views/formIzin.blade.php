@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Layouts.app')
 
 @section('content')
 
@@ -51,5 +51,5 @@
                 Kembali </a>
     </div>
 </section>
-@include('layouts.footer')
+@include('Layouts.footer')
 @endsection
