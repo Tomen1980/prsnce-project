@@ -1,11 +1,16 @@
 {{-- Foreach --}}
 @forelse ($data as $item)
     <div class="flex w-[85%] justify-end items-center ">
+       
         <div class="relative flex mt-5 w-[80%] bg-input-primary  p-3 rounded-2xl border-2 items-center overflow-x-auto">
+            <a href="riwayatPresensi/{{ $item->id }}" class="w-10 h-10  absolute top-2 right-2 group">
+                <img src="/img/menuMonitor.png" alt="" class="object-cover w-full h-full">
+                <div class="absolute inset-0 bg-gray-600 opacity-0 group-hover:opacity-50"></div>
+            </a>
             <div class="w-[20%] md:w-[10%]">
                 <div class="w-[60px] h-[60px] rounded-full md:w-[70px] md:h-[70px] mx-auto">
                     <img src="{{ Storage::url('users/' . $item->image) }}" alt="Profile Image"
-                        class="object-cover w-full h-full ">
+                        class="object-cover w-full h-full rounded-full">
                 </div>
             </div>
             <div class="ml-10 w-[80%] md:ml-5 md:w-[90%]">

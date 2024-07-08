@@ -43,15 +43,21 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>NO</th>
                     <th>Tanggal</th>
+                    <th>Waktu Masuk</th>
+                    <th>Waktu Pulang</th>
                     <th>Keterangan</th>
                     <th>Deskripsi</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($absenData as $item)
+                @foreach($absenData as $index => $item)
                 <tr>
+                    <td>{{ $index+1 }}</td>
                     <td>{{ $item->tanggal }}</td>
+                    <td>{{ $item->absenMasuk }}</td>
+                    <td>{{ $item->absenPulang }}</td>
                     <td>{{ $item->status }}</td>
                     <td>{{ $item->keterangan }}</td>
                 </tr>

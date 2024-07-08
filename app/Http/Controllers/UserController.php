@@ -84,7 +84,7 @@ class UserController extends Controller
             'passwordVerify' => 'required|same:password',
         ]);
 
-        
+        // return dd($request->all());
         
 
         // return dd($request->all());
@@ -108,9 +108,9 @@ class UserController extends Controller
       
 
         $data = User::create([
+            'id' => $validasi['nip'],
             'name' => $validasi['name'],
             'instansi' => $validasi['instansi'],
-            'id' => $validasi['nip'],
             'id_intern' => $validasi['tipePeserta'],
             'id_unit' => $validasi['tipeUnit'],
             'email' => $validasi['email'],
@@ -195,9 +195,9 @@ class UserController extends Controller
         }
 
         $data = User::where('id', $id)->update([
+            'id' => $nipValid,
             'name' => $validasi['name'],
             'instansi' => $validasi['instansi'],
-            'id' => $nipValid,
             'id_intern' => $validasi['tipePeserta'],
             'id_unit' => $validasi['tipeUnit'],
             'email' => $validasi['email'],

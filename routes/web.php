@@ -59,10 +59,11 @@ Route::middleware(['auth', 'AutoLogoutAuth'])->group(function () {
     
     Route::get('riwayatPresensi', [absenController::class, 'riwayatPresensi']);
     Route::get('/searchRiwayat', [absenController::class, 'searchRiwayat'])->name('searchRiwayat');
+    Route::get('riwayatPresensi/{id}', [absenController::class, 'riwayatPresensi']);
 
     Route::get('/monitor', [absenController::class, 'monitor'])->middleware('RoleAuthenticated');
     Route::get('/searchMonitor', [absenController::class, 'searchMonitor'])->name('searchMonitor')->middleware('RoleAuthenticated');
-    Route::get('generate-pdf', [generatePDFController::class, 'generatePDF']);
+    Route::get('generate-pdf/{id}', [generatePDFController::class, 'generatePDF']);
     Route::get('chart', [AuthController::class, 'chart']);
 });
 

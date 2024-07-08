@@ -98,21 +98,25 @@ class absenController extends Controller
 
     public function Monitor()
     {
-        $data = DB::table('users')->leftJoin('absensi', 'users.id', '=', 'absensi.id_user')->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')->select('users.name', 'users.image', DB::raw('COUNT(DISTINCT laporan.id_absen) as total_hadir'), DB::raw('COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) as total_alfa'), DB::raw('COUNT(DISTINCT izin.id_absen) as total_izin'), DB::raw('COUNT(DISTINCT laporan.id_absen) + COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) + COUNT(DISTINCT izin.id_absen) as total_kehadiran'))->where('users.role', 'intern')->groupBy('users.name', 'users.image')->get();
+        $data = DB::table('users')
+        ->leftJoin('absensi', 'users.id', '=', 'absensi.id_user')
+        ->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')
+        ->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')
+        ->select('users.name', 'users.image', 'users.id',
+        DB::raw('COUNT(DISTINCT laporan.id_absen) as total_hadir'), 
+        DB::raw('COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) as total_alfa'), 
+        DB::raw('COUNT(DISTINCT izin.id_absen) as total_izin'), 
+        DB::raw('COUNT(DISTINCT laporan.id_absen) + COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) + COUNT(DISTINCT izin.id_absen) as total_kehadiran'))->where('users.role', 'intern')
+        ->groupBy('users.name', 'users.image', 'users.id')->get();
 
-        // return dd([
-        //     'totalHadir' => $totalHadir,
-        //     // 'totalAlfa' => $totalAlfa,
-        //     // 'totalIzin' => $totalIzin
-        // ]);
-
+    //   return dd($data);
         return view('monitor', compact('data'));
     }
 
     public function searchMonitor(Request $request)
     {
         $search = $request->input('search');
-        $query = DB::table('users')->leftJoin('absensi', 'users.id', '=', 'absensi.id_user')->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')->select('users.name', 'users.image', DB::raw('COUNT(DISTINCT laporan.id_absen) as total_hadir'), DB::raw('COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) as total_alfa'), DB::raw('COUNT(DISTINCT izin.id_absen) as total_izin'), DB::raw('COUNT(DISTINCT laporan.id_absen) + COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) + COUNT(DISTINCT izin.id_absen) as total_kehadiran'))->where('users.role', 'intern')->groupBy('users.name', 'users.image');
+        $query = DB::table('users')->leftJoin('absensi', 'users.id', '=', 'absensi.id_user')->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')->select('users.name', 'users.image','users.id', DB::raw('COUNT(DISTINCT laporan.id_absen) as total_hadir'), DB::raw('COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) as total_alfa'), DB::raw('COUNT(DISTINCT izin.id_absen) as total_izin'), DB::raw('COUNT(DISTINCT laporan.id_absen) + COUNT(DISTINCT CASE WHEN laporan.id_absen IS NULL AND izin.id_absen IS NULL THEN absensi.id ELSE NULL END) + COUNT(DISTINCT izin.id_absen) as total_kehadiran'))->where('users.role', 'intern')->groupBy('users.name', 'users.image','users.id');
 
         if (!empty($search)) {
             $query->where('users.name', 'like', '%' . $search . '%');
@@ -127,13 +131,18 @@ class absenController extends Controller
         return view('monitor', compact('data', 'search'));
     }
 
-    public function riwayatPresensi()
+    public function riwayatPresensi(string $id = null)
     {
+        if($id == null){
+            $idUser = Auth::user()->id;
+        }else{
+            $idUser = $id;
+        }
         $absenData = DB::table('absensi')
             ->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')
             ->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')
             ->select(
-                'absensi.tanggal',
+                'absensi.tanggal','absensi.absenMasuk','absensi.absenPulang',
                 DB::raw('
                     CASE
                         WHEN laporan.id IS NOT NULL THEN "Hadir"
@@ -143,24 +152,30 @@ class absenController extends Controller
                 '),
                 DB::raw('COALESCE(izin.keterangan, laporan.deskripsi, "Tidak ada keterangan") AS keterangan'),
             )
-            ->where('absensi.id_user', Auth::user()->id)
+            ->where('absensi.id_user', $idUser)
             ->latest('absensi.tanggal')
             ->paginate(10);
 
         // return dd($absenData);
 
         return view('riwayatPresensi',[
-            'absenData' => $absenData
+            'absenData' => $absenData,
+            'idUser' => $idUser
         ]);
     }
     public function searchRiwayat(Request $request) {
         $search = $request->input('search');
-
+        $id = $request->input('idUser');
+        if($id == null){
+            $idUser = Auth::user()->id;
+        }else{
+            $idUser = $id;
+        }
         $query = DB::table('absensi')
             ->leftJoin('izin', 'absensi.id', '=', 'izin.id_absen')
             ->leftJoin('laporan', 'absensi.id', '=', 'laporan.id_absen')
             ->select(
-                'absensi.tanggal',
+                'absensi.tanggal','absensi.absenMasuk','absensi.absenPulang',
                 DB::raw('
                     CASE
                         WHEN laporan.id IS NOT NULL THEN "Hadir"
@@ -170,14 +185,14 @@ class absenController extends Controller
                 '),
                 DB::raw('COALESCE(izin.keterangan, laporan.deskripsi, "Tidak ada keterangan") AS keterangan'),
             )
-            ->where('absensi.id_user', Auth::user()->id)
+            ->where('absensi.id_user', $idUser)
             ->where(function ($query) use ($search) {
                 $query->where('absensi.tanggal', 'like', '%' . $search . '%');
             })
             ->orderBy('absensi.tanggal');
 
         $absenData = $query->paginate(10);
-
+        // return dd($absenData);
         if ($request->ajax()) {
             return view('partial.listRiwayatPresensi', compact('absenData'))->render();
         }
