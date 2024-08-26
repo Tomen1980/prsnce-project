@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->string('name');
             $table->string('email')->unique();
             $table->enum('role', ['4dm1n', 'intern'])->default('intern');
-            $table->string('NoTelp', 13);
+            $table->string('noTelp', 13);
             $table->string('instansi')->nullable();
             $table->string('image')->default('default.png');
             $table->timestamp('email_verified_at')->nullable();
@@ -23,8 +23,8 @@ return new class extends Migration {
             $table->string('mentor')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId('id_intern')->nullable()->references('id')->on('internType')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('id_unit')->nullable()->references('id')->on('unitType')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_intern')->nullable()->references('id')->on('interntype')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_unit')->nullable()->references('id')->on('unittype')->onDelete('cascade')->onUpdate('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

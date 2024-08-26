@@ -23,8 +23,8 @@ class userSeeder extends Seeder
             'noTelp' => '08123456789',
             'instansi' => '',
             'image' => 'default.png',
-            'id_intern' => null,
-            'id_unit' => null
+            'id_intern' => 1,
+            'id_unit' => 1
         ]);
         user::create([
             'id'=>2,

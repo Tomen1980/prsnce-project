@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('internType', function (Blueprint $table){
+        Schema::create('interntype', function (Blueprint $table){
             $table->id();
             $table->string('pesertaKP');
         });
